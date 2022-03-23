@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>注意事项 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="很多同学使用的是大二期间安装的Hadoop，那时候你使用的是root用户启动的Hadoop。现在需要增加一个用户名为你姓名全拼的普通用户。比如增加一个张三用户。 1234# 增加一个普通用户张三[root@node0 ~] # useradd zhangsan# 为张三设置密码[root@node0 ~] # passwd zhangsan    你之前的机器名为 CentOS8-XXX，现在我的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注意事项">
+<meta property="og:url" content="http://example.com/2022/03/23/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="很多同学使用的是大二期间安装的Hadoop，那时候你使用的是root用户启动的Hadoop。现在需要增加一个用户名为你姓名全拼的普通用户。比如增加一个张三用户。 1234# 增加一个普通用户张三[root@node0 ~] # useradd zhangsan# 为张三设置密码[root@node0 ~] # passwd zhangsan    你之前的机器名为 CentOS8-XXX，现在我的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-23T07:55:26.000Z">
+<meta property="article:modified_time" content="2022-03-23T08:10:32.816Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/03/23/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '注意事项',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-03-23 16:10:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">注意事项</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-03-23T08:10:32.816Z" title="Updated 2022-03-23 16:10:32">2022-03-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="注意事项"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>很多同学使用的是大二期间安装的<code>Hadoop</code>，那时候你使用的是<code>root</code>用户启动的<code>Hadoop</code>。现在需要增加一个用户名为你<code>姓名全拼</code>的普通用户。比如增加一个张三用户。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">增加一个普通用户张三</span></span><br><span class="line">[root@node0 ~] # useradd zhangsan</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">为张三设置密码</span></span><br><span class="line">[root@node0 ~] # passwd zhangsan</span><br></pre></td></tr></table></figure>
+
+
+
+<p>你之前的机器名为 <code>CentOS8-XXX</code>，现在我的文档中的机器名为 <code>node0</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br><span class="line"></span><br><span class="line">node0</span><br></pre></td></tr></table></figure>
+
+<p>修改完重启<code>CentOS</code>，机器名修改生效。</p>
+<p>要注意的是<code>Hadoop</code>的配置文件<code>core-site.xml</code>中定义了<code>NameNode</code>运行在哪个节点上，通过哪个端口对外提供服务。</p>
+<p>你之前的配置应该是<code>fs.defaultFs=hdfs://CentOS8-XX:8020</code>，也就是说<code>Hadoop</code>运行在机器名为<code>CentOS-xx</code>主机上，通过<code>8020</code>端口对外提供服务。</p>
+<p>因为上面机器名被改成<code>node0</code>了，这个<code>core-site.xml</code>也要同步修改一下，也就是说把 <code>CentOS-xx</code>改成<code>node0</code>。</p>
+<hr>
+<p><code>Hadoop</code>把多台机器通过网络连接起来构成了分布式文件系统<code>HDFS</code>，它运行在Linux系统上，数据最终还是要存放到Linux文件系统上。</p>
+<p>你之前是把数据存放到了<code>/opt/hadoop-2.9.2/</code>目录下了，这个目录的所有者和所属组都是<code>root</code></p>
+<p>以普通用户<code>zhangsan</code>启动<code>Hadoop</code>的时候，<code>zhangsan</code>没有权限写这个文件夹，你要把这个文件夹的所有者和所属组改一下，改成你所有<code>chown -R zhangsan:zhangsan /opt/hadoop-2.9.2/</code></p>
+<p>或者简单粗暴地<code>chmod -R 777 /opt/hadoop-2.9.2/</code>。</p>
+<p>以后便可使用<code>张三</code>用户启动<code>Hadoop</code>了，</p>
+<p>在Linux系统中，超级用户是<code>root</code>用户</p>
+<p>但是在<code>HDFS</code>中，谁启动<code>NameNode</code>谁就是<code>HDFS</code>的超级用户。</p>
+<p>也就是说，如果你使用<code>张三</code>启动<code>Hadoop</code>， <code>张三</code>便是<code>HDFS</code>中的<code>超级用户</code>，<code>root</code>反而是<code>HDFS</code>中的<code>普通用户</code>。</p>
+<hr>
+<p>如果你启动的时候，总是让你输入密码，是因为没有配置<code>zhansang</code>用户的免密登录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成密钥对</span></span><br><span class="line">[zhangsan@node0 ~] $ ssh-key-gen</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">公钥分发到node0</span></span><br><span class="line">[zhangsan@node0 ~] $ ssh-copy-id node0</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>电脑要联网就要有<code>IP</code>地址，<code>IPv4</code>地址是一串二进制数，为了让人容易识别，将每8个二进制数转化成十进制数展示出来。</p>
+<p><strong>IPV4</strong> <code>1100000010101000100111111100100</code></p>
+<table>
+<thead>
+<tr>
+<th>二进制</th>
+<th>11000000</th>
+<th>10101000</th>
+<th>10011111</th>
+<th>1100100</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>十进制</td>
+<td>192</td>
+<td>168</td>
+<td>159</td>
+<td>100</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>二进制(<code>min</code>)</td>
+<td>00000000</td>
+<td></td>
+<td>二进制(<code>max</code>)</td>
+<td>11111111</td>
+</tr>
+<tr>
+<td>十进制</td>
+<td><code>0</code></td>
+<td></td>
+<td>十进制</td>
+<td><code>255</code></td>
+</tr>
+</tbody></table>
+<p>8位二进制数可表示的最小值为 <code>0000 0000(2)</code>  转换为十进制 ，即为<code>0 (10)</code> </p>
+<p>8位二进制数可表示的最大值为 <code>1111 1111(2)</code>  转换为十进制 ，即为<code>255(10)</code> </p>
+<p>因此，8位二进制数的表示范围 为 <code>0&lt;=x&lt;=255</code></p>
+<p>为<code>CentOS</code>配置<code>静态IP</code>要在 <code>0&lt;x&lt;255</code>之间，因为<code>DHCP</code>管理分配<code>128-255</code>之间的<code>IP</code>，我们选择 <code>2&lt;x&lt;128</code>之间的<code>ip</code>地址。</p>
+<p>我选择了<code>192.168.159.100</code></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jimmy-share/p/11108967.html">子网掩码的作用与IP网段的划分</a></p>
+<hr>
+<p>网络配置检查，本文档通过<code>NAT</code>连接网络。</p>
+<ul>
+<li><p><code>VMWare</code>-<code>虚拟机</code>-<code>虚拟机设置</code>-<code>网络适配器</code>-<code>NAT</code>?</p>
+</li>
+<li><p>检查<code>CentOS</code>有没有<code>IP</code></p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以看到有个ens开头的网卡，intnet</span></span><br><span class="line">[zhangsan@node0 ~]ip addr </span><br><span class="line">intnet=192.168.179.100</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查<code>Windows</code>中虚拟网卡的<code>IP</code></li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在windows cmd中执行命令</span></span><br><span class="line"><span class="comment"># ipconfig</span></span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet8:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . :</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::<span class="number">84</span>e3:d61c:<span class="number">6</span>e0a:e673%<span class="number">9</span></span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : <span class="number">192.168</span>.<span class="number">179.1</span></span><br><span class="line">   子网掩码  . . . . . . . . . . . . : <span class="number">255.255</span>.<span class="number">255.0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>CentOS</code>和<code>Windows</code>互相<code>ping</code>测试</p>
+</li>
+<li><p><code>CentOS</code>  <code>ping www.baidu.com</code></p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/03/23/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">http://example.com/2022/03/23/%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/23/hello/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">hello</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/23/hello-world/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/HBase_Shell/" title="HBase_Shell"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBase_Shell"/></a><div class="content"><a class="title" href="/2022/03/23/HBase_Shell/" title="HBase_Shell">HBase_Shell</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/HBase/" title="HBase"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBase"/></a><div class="content"><a class="title" href="/2022/03/23/HBase/" title="HBase">HBase</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop HDFS"/></a><div class="content"><a class="title" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS">Hadoop HDFS</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/Hadoop/" title="Hadoop"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop"/></a><div class="content"><a class="title" href="/2022/03/23/Hadoop/" title="Hadoop">Hadoop</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop_MapReduce"/></a><div class="content"><a class="title" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce">Hadoop_MapReduce</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

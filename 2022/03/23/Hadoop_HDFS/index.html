@@ -1,0 +1,598 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hadoop HDFS | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="文件系统 文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。 Windows： NTFS、FAT32（存放的单个文件不能超过4GB） Linux：ext2、ext3、ext4、xfs Hadoop：hdfs  HDFS用户 超级用户  If you s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop HDFS">
+<meta property="og:url" content="http://example.com/2022/03/23/Hadoop_HDFS/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="文件系统 文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。 Windows： NTFS、FAT32（存放的单个文件不能超过4GB） Linux：ext2、ext3、ext4、xfs Hadoop：hdfs  HDFS用户 超级用户  If you s">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-23T07:55:26.000Z">
+<meta property="article:modified_time" content="2022-03-23T08:10:15.393Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/03/23/Hadoop_HDFS/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hadoop HDFS',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-23 16:10:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hadoop HDFS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-03-23T08:10:15.393Z" title="Updated 2022-03-23 16:10:15">2022-03-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hadoop HDFS"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a><strong>文件系统</strong></h1><blockquote>
+<p>文件系统是对<code>文件存储设备</code>的空间进行<code>组织</code>和<code>分配</code>，负责<code>文件存储</code>并对存入的文件进行<code>保护</code>和<code>检索</code>的系统。具体地说，它负责为用户<code>建立文件</code>，<code>存入</code>、<code>读出</code>、<code>修改</code>、<code>转储文件</code>，控制文件的存取，当用户不再使用时撤销文件等。</p>
+<p><strong>Windows：</strong> NTFS、FAT32（存放的单个文件不能超过4GB）</p>
+<p><strong>Linux：</strong>ext2、ext3、ext4、xfs</p>
+<p><strong>Hadoop：</strong>hdfs</p>
+</blockquote>
+<h2 id="HDFS用户"><a href="#HDFS用户" class="headerlink" title="HDFS用户"></a>HDFS用户</h2><ul>
+<li>超级用户</li>
+</ul>
+<p>If you started the <code>NameNode</code>, then you are the <code>super-user</code>. </p>
+<ul>
+<li>用户身份</li>
+</ul>
+<p>The <code>identity</code> of a <code>client process</code> is determined by the <code>host operating system</code>. On Unix-like systems, the user name is the equivalent of <code>whoami</code>. </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html">https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html</a></p>
+</blockquote>
+<h1 id="HDFS-Shell"><a href="#HDFS-Shell" class="headerlink" title="HDFS Shell"></a>HDFS Shell</h1><h2 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h2><p><code>HDFS Shell</code>命令是由一系列类似Linux Shell的命令组成的。命令格式如下所示：</p>
+<p><code>hdfs [--config confdir] [--loglevel loglevel] COMMAND</code></p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p><code>hdfs version</code></p>
+<p><code>hdfs namenode -format</code></p>
+<p><code>hdfs dfs -ls /</code>    </p>
+<p><code>hdfs dfsadmin -safemode enter</code> </p>
+<h2 id="文件系统命令"><a href="#文件系统命令" class="headerlink" title="文件系统命令"></a>文件系统命令</h2><p><code>hdfs dfs [options]</code> </p>
+<p><code>run a filesystem command on the file systems supported in Hadoop.</code></p>
+<table>
+<thead>
+<tr>
+<th>作用</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td><code>-help [cmd ...]</code></td>
+</tr>
+<tr>
+<td><strong>文件系统间交互</strong></td>
+<td><code>-put [-f] [-p] [-l] &lt;localsrc&gt; ... &lt;dst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-copyFromLocal [-f] [-p] [-l] &lt;localsrc&gt; ... &lt;dst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-moveFromLocal &lt;localsrc&gt; ... &lt;dst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-moveToLocal &lt;src&gt; &lt;localdst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-get [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-copyToLocal [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-appendToFile &lt;localsrc&gt; ... &lt;dst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-getmerge [-nl] &lt;src&gt; &lt;localdst&gt;</code></td>
+</tr>
+<tr>
+<td><strong>文件管理</strong></td>
+<td><code>-mkdir [-p] &lt;path&gt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-ls [-d] [-h] [-R] [&lt;path&gt; ...]</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-touchz &lt;path&gt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-cat [-ignoreCrc] &lt;src&gt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-tail [-f] &lt;file&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-cp [-f] [-p] &lt;src&gt; ... &lt;dst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-mv &lt;src&gt; ... &lt;dst&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>&#96;-rm [-f] [-r</td>
+</tr>
+<tr>
+<td></td>
+<td><code>-rmdir [--ignore-fail-on-non-empty] &lt;dir&gt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-count [-q] [-h] &lt;path&gt; ...</code></td>
+</tr>
+<tr>
+<td><strong>文件校验</strong></td>
+<td><code>-checksum &lt;src&gt; ...</code></td>
+</tr>
+<tr>
+<td><strong>权限</strong></td>
+<td><code>-chown [-R] [OWNER][:[GROUP]] PATH...</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-chgrp [-R] GROUP PATH...</code></td>
+</tr>
+<tr>
+<td></td>
+<td>&#96;-chmod [-R] &lt;MODE[,MODE]…</td>
+</tr>
+<tr>
+<td><strong>快照</strong></td>
+<td><code>-createSnapshot &lt;snapshotDir&gt; [&lt;snapshotName&gt;]</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-renameSnapshot &lt;snapshotDir&gt; &lt;oldName&gt; &lt;newName&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-deleteSnapshot &lt;snapshotDir&gt; &lt;snapshotName&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-df [-h] [&lt;path&gt; ...]</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-du [-s] [-h] &lt;path&gt; ...</code></td>
+</tr>
+<tr>
+<td><strong>清空回收站</strong></td>
+<td><code>-expunge</code></td>
+</tr>
+<tr>
+<td><strong>文件查找</strong></td>
+<td><code>-find &lt;path&gt; ... &lt;expression&gt; ...</code></td>
+</tr>
+<tr>
+<td><strong>访问控制列表</strong></td>
+<td><code>-getfacl [-R] &lt;path&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>&#96;-setfacl [-R] [{-b</td>
+</tr>
+<tr>
+<td><strong>扩展属性</strong></td>
+<td>&#96;-setfattr { -n name [ -v value]</td>
+</tr>
+<tr>
+<td></td>
+<td>&#96;-getfattr [-R] { -n name</td>
+</tr>
+<tr>
+<td><strong>副本</strong></td>
+<td><code>-setrep [-R] [-w] &lt;rep&gt; &lt;path&gt; ...</code></td>
+</tr>
+<tr>
+<td><strong>文件统计</strong></td>
+<td><code>-stat [format] &lt;path&gt; ...</code></td>
+</tr>
+<tr>
+<td><strong>存在判断</strong></td>
+<td><code>-test -[defsz] &lt;path&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-text [-ignoreCrc] &lt;src&gt; ...</code></td>
+</tr>
+<tr>
+<td><strong>文件截断</strong></td>
+<td><code>-truncate [-w] &lt;length&gt; &lt;path&gt; ...</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>-usage [cmd ...]</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#User_Commands">https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#User_Commands</a></p>
+</blockquote>
+<h3 id="文件扩展属性"><a href="#文件扩展属性" class="headerlink" title="文件扩展属性"></a>文件扩展属性</h3><h5 id="设置扩展属性"><a href="#设置扩展属性" class="headerlink" title="设置扩展属性"></a>设置扩展属性</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -setfattr -n name [-v value] &lt;path&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>-n</code>：属性名，要以<code>user/trusted/security/system/raw</code>。比如 <code>user.from</code></p>
+<p><code>-v</code>:   属性值</p>
+<p><code>-x</code>:   删除文件的扩展属性</p>
+<h5 id="获取扩展属性"><a href="#获取扩展属性" class="headerlink" title="获取扩展属性"></a>获取扩展属性</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -getfattr [-n name | -d ] [-e en] &lt;path&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>-d</code> : 显示所有属性</p>
+<p><code>-e</code>:  encoding ,属性值以指定的编码输出。<code>text / hex / base64</code></p>
+<h2 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h2><p><code>hdfs dfsadmin [options]</code></p>
+<p><code>run a DFS admin client</code></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#Administration_Commands">https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#Administration_Commands</a></p>
+</blockquote>
+<h2 id="启用回收站"><a href="#启用回收站" class="headerlink" title="启用回收站"></a>启用回收站</h2><table>
+<thead>
+<tr>
+<th>property</th>
+<th>default</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fs.trash.interval</code></td>
+<td>0</td>
+<td>保留时间（默认关闭，单位分钟）</td>
+</tr>
+<tr>
+<td><code>fs.trash.checkpoint.interval</code></td>
+<td>0</td>
+<td>垃圾回收的检查时间间隔，一般小于保留时间</td>
+</tr>
+</tbody></table>
+<p>回收站位置：<code>/user/$USER/.Trash/Current/</code></p>
+<blockquote>
+<p><strong>对应配置文件：</strong></p>
+<p><code>core-site.xml</code></p>
+</blockquote>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h5 id="启动HDFS"><a href="#启动HDFS" class="headerlink" title="启动HDFS"></a>启动HDFS</h5><p>使用用户<code>zhangsan</code>启动<code>HDFS</code>（张三用户已配置免密登录）</p>
+<h5 id="集群状态"><a href="#集群状态" class="headerlink" title="集群状态"></a>集群状态</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="集群拓扑结构"><a href="#集群拓扑结构" class="headerlink" title="集群拓扑结构"></a>集群拓扑结构</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用用户<code>root</code>执行后续操作。</p>
+<h5 id="配置全局环境变量"><a href="#配置全局环境变量" class="headerlink" title="配置全局环境变量"></a>配置全局环境变量</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@node0 ~]# vim /etc/profile</span><br><span class="line"></span><br><span class="line">export HADOOP_HOME=/opt/bigdata/hadoop/default</span><br><span class="line">export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin/:$PATH</span><br></pre></td></tr></table></figure>
+
+<h5 id="Linux本地创建文件-file-hadoop，-内容为-hello-hadoop"><a href="#Linux本地创建文件-file-hadoop，-内容为-hello-hadoop" class="headerlink" title="Linux本地创建文件 file_hadoop， 内容为 hello hadoop"></a>Linux本地创建文件<code> file_hadoop</code>， 内容为 <code>hello hadoop</code></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="Linux本地创建文件-file-to-append-内容为hell-hbase"><a href="#Linux本地创建文件-file-to-append-内容为hell-hbase" class="headerlink" title="Linux本地创建文件 file_to_append , 内容为hell hbase"></a>Linux本地创建文件<code> file_to_append</code> , 内容为<code>hell hbase</code></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="Linux本地创建文件-file-to-move-内容为-hello-spark"><a href="#Linux本地创建文件-file-to-move-内容为-hello-spark" class="headerlink" title="Linux本地创建文件 file_to_move 内容为 hello spark"></a>Linux本地创建文件<code> file_to_move</code> 内容为 <code>hello spark</code></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="创建文件夹-input"><a href="#创建文件夹-input" class="headerlink" title="创建文件夹/input"></a>创建文件夹<code>/input</code></h5><p>如果创建失败（把<code>root</code>用户加入<code>supergroup</code>）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@node0 ~]# groupadd supergroup</span><br><span class="line">You have new mail in /var/spool/mail/root</span><br><span class="line"></span><br><span class="line">[root@node0 ~]# gpasswd -a root supergroup</span><br><span class="line">Adding user root to group supergroup</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同步系统的权限信息到HDFS</span></span><br><span class="line">[root@node0 ~]# hdfs dfsadmin -refreshUserToGroupsMappings</span><br><span class="line">Refresh user to groups mapping successful</span><br></pre></td></tr></table></figure>
+
+<p>创建文件夹 <code>hdfs:///input/</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="创建文件夹hdfs-user-root"><a href="#创建文件夹hdfs-user-root" class="headerlink" title="创建文件夹hdfs:///user/root/"></a>创建文件夹<code>hdfs:///user/root/</code></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h5><p>上传文件 <code>file_hadoop</code>到<code>hdfs:///input/</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="创建空白文件"><a href="#创建空白文件" class="headerlink" title="创建空白文件"></a>创建空白文件</h5><p>创建空白文件<code>hdfs:///input/file_hbase</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="内容追加"><a href="#内容追加" class="headerlink" title="内容追加"></a>内容追加</h5><p>将本地文件 <code>file_to_append</code> 的内容追加到 <code>hdfs:///input/file_hbase</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="内容查看"><a href="#内容查看" class="headerlink" title="内容查看"></a>内容查看</h5><p>查看HDFS中 <code>hdfs:///input/file_hbase</code> 文件内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="本地移动到HDFS"><a href="#本地移动到HDFS" class="headerlink" title="本地移动到HDFS"></a>本地移动到HDFS</h5><p> 将本地文件 <code>file_to_move</code> 移动到 <code>hdfs:///input/</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件重命名"><a href="#HDFS文件重命名" class="headerlink" title="HDFS文件重命名"></a>HDFS文件重命名</h5><p>将 <code>hdfs:///input/file_to_move</code> 重命名为 <code>hdfs:///input/file_spark</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将文件夹  <code>hdfs:///input/</code> 重命名为  <code>hdfs:///data/</code> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件复制"><a href="#HDFS文件复制" class="headerlink" title="HDFS文件复制"></a>HDFS文件复制</h5><p>将<code>hdfs:///data/file_hadoop | file_hbase | file_spark</code> 复制到 <code>hdfs:///user/root/</code>下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># TODO</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="文件列表"><a href="#文件列表" class="headerlink" title="文件列表"></a>文件列表</h5><p>查看<code>hdfs:///user/root/</code>下的文件的详细信息（创建修改时间，所有者，权限）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="合并下载"><a href="#合并下载" class="headerlink" title="合并下载"></a>合并下载</h5><p>将hdfs<code>file_hadoop</code>, <code>file_hbase</code>, <code>file_spark</code>下载到本地<code> file_merge.txt</code>，以换行符分割。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="大文件上传"><a href="#大文件上传" class="headerlink" title="大文件上传"></a>大文件上传</h5><p>上传<code>hadoop-2.7.3.tar.gz</code>压缩包到<code>hdfs:///user/root/</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h5><p>为文件增加扩展属性：<code>hdfs:///user/root/hadoop-2.7.3.tar.gz</code></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>user.doc</code></td>
+<td><code>https://hadoop.apache.org/docs/</code></td>
+</tr>
+<tr>
+<td><code>user.download</code></td>
+<td><code>https://archive.apache.org/dist/hadoop/common/hadoop-2.7.3/</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>查看文件的所有属性</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h5><p>统计<code>hdfs:///user/root/</code>内文件数量和总大小（MB显示）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p>删除<code>hdfs:///data/</code>下的所有文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TODO</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h2><p>安全模式下，<code>HDFS</code>只接收<code>读取</code>请求，不接收<code>修改</code>、<code>删除</code>请求。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><table>
+<thead>
+<tr>
+<th>property</th>
+<th>default</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>dfs.namenode.safemode.threshold-pct</code></td>
+<td><code>0.999f</code></td>
+<td><code>默认副本率</code>&#x3D;<code> 实际副本数</code>&#x2F;<code>设置的副本数</code></td>
+</tr>
+<tr>
+<td><code>dfs.namenode.safemode.min.datanodes</code></td>
+<td><code>0</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dfs.namenode.safemode.extension</code></td>
+<td><code>30000</code></td>
+<td>默认离开安全模式时间</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>对应配置文件：</strong></p>
+<p><code>hdfs-site.xml</code></p>
+</blockquote>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><code>hdfs dfsamin</code></p>
+<table>
+<thead>
+<tr>
+<th><code>-safemode</code></th>
+<th>参数</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td><code>enter</code></td>
+<td>进入安全模式</td>
+</tr>
+<tr>
+<td></td>
+<td><code>leave</code></td>
+<td>强制退出安全模式</td>
+</tr>
+<tr>
+<td></td>
+<td><code>get</code></td>
+<td>查看当前状态</td>
+</tr>
+<tr>
+<td></td>
+<td><code>wait</code></td>
+<td>等待从安全模式退出</td>
+</tr>
+</tbody></table>
+<h3 id="实验-1"><a href="#实验-1" class="headerlink" title="实验"></a>实验</h3><ul>
+<li><p>进入安全模式</p>
+</li>
+<li><p>删除文件&#x2F;user&#x2F;root&#x2F;file_hadoop</p>
+</li>
+<li><p>退出安全模式</p>
+</li>
+</ul>
+<h2 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h2><p><strong>备份单位</strong>：<code>目录</code> &#x2F;<code> 整个文件系统</code></p>
+<h2 id="配额"><a href="#配额" class="headerlink" title="配额"></a>配额</h2><p><code> hdfs dfsadmin</code></p>
+<table>
+<thead>
+<tr>
+<th>作用</th>
+<th>命令</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>数量限额（Num）</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>设置</td>
+<td><code>-setQuota</code></td>
+<td><code>&lt;num&gt; &lt;dirname&gt;...&lt;dirname&gt;</code></td>
+</tr>
+<tr>
+<td>清除</td>
+<td><code>-clrQuota </code></td>
+<td><code>&lt;dirname&gt;...&lt;dirname&gt;</code></td>
+</tr>
+<tr>
+<td><code>大小限额（Block）</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>设置</td>
+<td><code>-setSpaceQuota</code></td>
+<td><code>&lt;Size&gt;  &lt;dirname&gt;...&lt;dirname&gt; </code></td>
+</tr>
+<tr>
+<td>清除</td>
+<td><code>-clrSpaceQuota</code></td>
+<td><code>&lt;dirname&gt;...&lt;dirname&gt;</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#Administration_Commands">https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html#Administration_Commands</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/03/23/Hadoop_HDFS/">http://example.com/2022/03/23/Hadoop_HDFS/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/23/HBase/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">HBase</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/23/Hadoop/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Hadoop</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HDFS%E7%94%A8%E6%88%B7"><span class="toc-number">1.1.</span> <span class="toc-text">HDFS用户</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDFS-Shell"><span class="toc-number">2.</span> <span class="toc-text">HDFS Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">命令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B"><span class="toc-number">2.1.1.</span> <span class="toc-text">举例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">文件系统命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7"><span class="toc-number">2.2.1.</span> <span class="toc-text">文件扩展属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7"><span class="toc-number">2.2.1.0.1.</span> <span class="toc-text">设置扩展属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7"><span class="toc-number">2.2.1.0.2.</span> <span class="toc-text">获取扩展属性</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.</span> <span class="toc-text">管理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E5%9B%9E%E6%94%B6%E7%AB%99"><span class="toc-number">2.4.</span> <span class="toc-text">启用回收站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.5.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8HDFS"><span class="toc-number">2.5.0.0.1.</span> <span class="toc-text">启动HDFS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81"><span class="toc-number">2.5.0.0.2.</span> <span class="toc-text">集群状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84"><span class="toc-number">2.5.0.0.3.</span> <span class="toc-text">集群拓扑结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.5.0.0.4.</span> <span class="toc-text">配置全局环境变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-file-hadoop%EF%BC%8C-%E5%86%85%E5%AE%B9%E4%B8%BA-hello-hadoop"><span class="toc-number">2.5.0.0.5.</span> <span class="toc-text">Linux本地创建文件 file_hadoop， 内容为 hello hadoop</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-file-to-append-%E5%86%85%E5%AE%B9%E4%B8%BAhell-hbase"><span class="toc-number">2.5.0.0.6.</span> <span class="toc-text">Linux本地创建文件 file_to_append , 内容为hell hbase</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-file-to-move-%E5%86%85%E5%AE%B9%E4%B8%BA-hello-spark"><span class="toc-number">2.5.0.0.7.</span> <span class="toc-text">Linux本地创建文件 file_to_move 内容为 hello spark</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9-input"><span class="toc-number">2.5.0.0.8.</span> <span class="toc-text">创建文件夹&#x2F;input</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9hdfs-user-root"><span class="toc-number">2.5.0.0.9.</span> <span class="toc-text">创建文件夹hdfs:&#x2F;&#x2F;&#x2F;user&#x2F;root&#x2F;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="toc-number">2.5.0.0.10.</span> <span class="toc-text">上传文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%A9%BA%E7%99%BD%E6%96%87%E4%BB%B6"><span class="toc-number">2.5.0.0.11.</span> <span class="toc-text">创建空白文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E8%BF%BD%E5%8A%A0"><span class="toc-number">2.5.0.0.12.</span> <span class="toc-text">内容追加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.5.0.0.13.</span> <span class="toc-text">内容查看</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E7%A7%BB%E5%8A%A8%E5%88%B0HDFS"><span class="toc-number">2.5.0.0.14.</span> <span class="toc-text">本地移动到HDFS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HDFS%E6%96%87%E4%BB%B6%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-number">2.5.0.0.15.</span> <span class="toc-text">HDFS文件重命名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HDFS%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6"><span class="toc-number">2.5.0.0.16.</span> <span class="toc-text">HDFS文件复制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="toc-number">2.5.0.0.17.</span> <span class="toc-text">文件列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.5.0.0.18.</span> <span class="toc-text">合并下载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">2.5.0.0.19.</span> <span class="toc-text">大文件上传</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7"><span class="toc-number">2.5.0.0.20.</span> <span class="toc-text">扩展属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1"><span class="toc-number">2.5.0.0.21.</span> <span class="toc-text">统计</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">2.5.0.0.22.</span> <span class="toc-text">删除</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.6.</span> <span class="toc-text">安全模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.6.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.6.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-1"><span class="toc-number">2.6.3.</span> <span class="toc-text">实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E7%85%A7"><span class="toc-number">2.7.</span> <span class="toc-text">快照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E9%A2%9D"><span class="toc-number">2.8.</span> <span class="toc-text">配额</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/HBase_Shell/" title="HBase_Shell"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBase_Shell"/></a><div class="content"><a class="title" href="/2022/03/23/HBase_Shell/" title="HBase_Shell">HBase_Shell</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/HBase/" title="HBase"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBase"/></a><div class="content"><a class="title" href="/2022/03/23/HBase/" title="HBase">HBase</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop HDFS"/></a><div class="content"><a class="title" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS">Hadoop HDFS</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/Hadoop/" title="Hadoop"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop"/></a><div class="content"><a class="title" href="/2022/03/23/Hadoop/" title="Hadoop">Hadoop</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop_MapReduce"/></a><div class="content"><a class="title" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce">Hadoop_MapReduce</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
