@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Spark | 学习大数据</title><meta name="author" content="XiaoQu"><meta name="copyright" content="XiaoQu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spark     实验 考勤 期末    40% 10% 50%   四次，每次10分     环境部署 官方文档 https:&#x2F;&#x2F;spark.apache.org&#x2F;docs&#x2F;2.4.8&#x2F; 下载地址 https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;spark&#x2F;spark-2.4.8&#x2F; 安装目录 &#x2F;opt&#x2F;bigdata&#x2F;spark 部署规划 node0：Local (Linux">
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Spark | 学习大数据</title><meta name="author" content="XiaoQu"><meta name="copyright" content="XiaoQu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spark   环境部署 官方文档 https:&#x2F;&#x2F;spark.apache.org&#x2F;docs&#x2F;2.4.8&#x2F; 下载地址 https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;spark&#x2F;spark-2.4.8&#x2F; 安装目录 &#x2F;opt&#x2F;bigdata&#x2F;spark 部署规划 node0：Local (Linux File System &amp; HDFS) node1 node2 node3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark">
 <meta property="og:url" content="http://www.studybigdata.cn/2022/03/23/Spark/index.html">
 <meta property="og:site_name" content="学习大数据">
-<meta property="og:description" content="Spark     实验 考勤 期末    40% 10% 50%   四次，每次10分     环境部署 官方文档 https:&#x2F;&#x2F;spark.apache.org&#x2F;docs&#x2F;2.4.8&#x2F; 下载地址 https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;spark&#x2F;spark-2.4.8&#x2F; 安装目录 &#x2F;opt&#x2F;bigdata&#x2F;spark 部署规划 node0：Local (Linux">
+<meta property="og:description" content="Spark   环境部署 官方文档 https:&#x2F;&#x2F;spark.apache.org&#x2F;docs&#x2F;2.4.8&#x2F; 下载地址 https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;spark&#x2F;spark-2.4.8&#x2F; 安装目录 &#x2F;opt&#x2F;bigdata&#x2F;spark 部署规划 node0：Local (Linux File System &amp; HDFS) node1 node2 node3">
 <meta property="og:locale">
 <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2022-03-23T07:55:26.000Z">
-<meta property="article:modified_time" content="2022-03-23T08:08:13.018Z">
+<meta property="article:modified_time" content="2022-03-24T11:20:41.492Z">
 <meta property="article:author" content="XiaoQu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.studybigdata.cn/2022/03/23/Spark/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-03-23 16:08:13'
+  postUpdate: '2022-03-24 19:20:41'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -148,27 +148,9 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Spark</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-03-23T08:08:13.018Z" title="Updated 2022-03-23 16:08:13">2022-03-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spark"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 style="color:red; text-align:center;color:red;">Spark</h1>
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Spark</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-03-24T11:20:41.492Z" title="Updated 2022-03-24 19:20:41">2022-03-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spark"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 style="color:red; text-align:center;color:red;">Spark</h1>
 
-<table>
-<thead>
-<tr>
-<th>实验</th>
-<th>考勤</th>
-<th>期末</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>40%</code></td>
-<td><code>10%</code></td>
-<td><code>50%</code></td>
-</tr>
-<tr>
-<td>四次，每次<code>10</code>分</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+
 <h1 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h1><blockquote>
 <p><strong>官方文档</strong></p>
 <p><a target="_blank" rel="noopener" href="https://spark.apache.org/docs/2.4.8/">https://spark.apache.org/docs/2.4.8/</a></p>
