@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-03-31 20:08:51'
+  postUpdate: '2022-03-31 20:23:38'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -144,7 +144,32 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/HBase_Shell/" title="HBase_Shell">HBase_Shell</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">小作业查看HBase版本1
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/HBase/" title="HBase">HBase</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">HBase
+
+环境部署
+官方文档
+https://hbase.apache.org/1.4/book.html
+下载地址
+https://archive.apache.org/dist/hbase/1.4.13/
+安装目录
+/opt/bigdata/hbase/
+配置文件
+https://hbase.apache.org/1.4/book.html#_configuration_files
+部署规划
+node0：Standalone
+node0：Pseudo-Distributed；
+node1 node2 node3  配置为hbase集群。
+名人名言
+子曰：人无远虑，必有近忧。
+轻诺必寡信，多易必多难。
+
+Standalone
+Standalone
+https://hbase.apache.org/1.4/book.html#quickstart
+
+准备上传12[hadoop@node0 bigdata]$ cd /opt/bigdata/[hadoop@node0 bigdata]$ mkdir hbase
+
+使用FTP工具上传压缩包hbase-1.4.13-bin.tar.gz ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/HBase_Shell/" title="HBase_Shell">HBase_Shell</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">小作业查看HBase版本1
 
 集群状态1
 
@@ -187,32 +212,29 @@
       Hadoop
       HBase
       Spark
-    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/HBase/" title="HBase">HBase</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">HBase
+    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop/" title="Hadoop环境部署">Hadoop环境部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">
+名句摘录
+其安易持，其未兆易谋，其脆易泮，其微易散。为之于未有，治之于未乱。(宜未雨而绸缪，勿临渴而掘井。)
 
 环境部署
+Apache开源软件软件的目录基本结构
+&#x2F;sbin：服务端可执行程序存放目录
+&#x2F;bin：客户端可执行程序存放目录
+conf&#x2F;etc：配置文件
+lib：动态链接库(so)，或者Java依赖包
+logs：日志目录
+HOME目录
+软件解压后的最外层目录，我们称谓该软件的HOME目录，一般用SOFTNAME_HOME表示。
+为方便直接跳转到软件HOME目录，我们将它们绝对路径定义在环境变量中。
+
+此后，我们使用普通用户zhangsan对相关配置进行修改。(除特别声明处)
+单机
 官方文档
-https://hbase.apache.org/1.4/book.html
-下载地址
-https://archive.apache.org/dist/hbase/1.4.13/
-安装目录
-/opt/bigdata/hbase/
-配置文件
-https://hbase.apache.org/1.4/book.html#_configuration_files
-部署规划
-node0：Standalone
-node0：Pseudo-Distributed；
-node1 node2 node3  配置为hbase集群。
-名人名言
-子曰：人无远虑，必有近忧。
-轻诺必寡信，多易必多难。
+https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/SingleCluster.html#Standalone_Operation
+名句摘录
+合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。
 
-Standalone
-Standalone
-https://hbase.apache.org/1.4/book.html#quickstart
-
-准备上传12[hadoop@node0 bigdata]$ cd /opt/bigdata/[hadoop@node0 bigdata]$ mkdir hbase
-
-使用FTP工具上传压缩包hbase-1.4.13-bin.tar.gz ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS">Hadoop HDFS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">文件系统
+安装下载1https://archive.apache.org/ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS">Hadoop HDFS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">文件系统
 文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。
 Windows： NTFS、FAT32（存放的单个文件不能超过4GB）
 Linux：ext2、ext3、ext4、xfs
@@ -229,29 +251,7 @@ The identity of a client process is determined by the host operating system. On 
 
 https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html
 
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop/" title="Hadoop">Hadoop</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">
-名句摘录
-其安易持，其未兆易谋，其脆易泮，其微易散。为之于未有，治之于未乱。(宜未雨而绸缪，勿临渴而掘井。)
-
-环境部署
-Apache开源软件软件的目录基本结构
-&#x2F;sbin：服务端可执行程序存放目录
-&#x2F;bin：客户端可执行程序存放目录
-conf&#x2F;etc：配置文件
-lib：动态链接库(so)，或者Java依赖包
-logs：日志
-HOME目录
-软件解压后的最外层目录，我们称谓该软件的HOME目录，一般用SOFTNAME_HOME表示。
-为方便直接跳转到软件HOME目录，我们将它们绝对路径定义在环境变量中。
-
-此后，我们使用普通用户zhangsan对相关配置进行修改。(除特别声明处)
-单机
-官方文档
-https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/SingleCluster.html#Standalone_Operation
-名句摘录
-合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。
-
-安装下载1https://archive.apache.org/di ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce">Hadoop_MapReduce</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop_YARN/" title="Hadoop_YARN">Hadoop_YARN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Linux/" title="Linux">Linux</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">基础知识控制台符号12$ : 普通用户# : root用户
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop_YARN/" title="Hadoop_YARN">Hadoop_YARN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce">Hadoop_MapReduce</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Linux/" title="Linux">Linux</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">基础知识控制台符号12$ : 普通用户# : root用户
 
 clear1清空屏幕
 
@@ -286,7 +286,11 @@ head12head -n 5 文件名查看文件前5行
 tail12tail -n 3 文件名 查看文件后三行
 more123分页查看文件内容回车：下一行空格：翻页
 less1less可以按键盘上下方向键显示上下内容，more不能通过上下方向键控制显示
-创建文本文件touch1t ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Linux_config/" title="Linux Config">Linux Config</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">Linux
+创建文本文件touch1t ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Maven/" title="Maven">Maven</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">Maven
+下载地址
+https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.zip
+
+配置文件settings.xml12345678910&lt; !--远程仓库地址-- &gt;&lt;mirror&gt;    &lt;id&gt;alimaven&lt;/id&gt;    &lt;name&gt;aliyun maven&lt;/name&gt;    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        &lt;/mirror&gt;    &lt; !--本地仓库-- &gt;&lt;localRepository&gt;D:\maven-repo-1&lt;/localRepository&gt;</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Linux_config/" title="Linux Config">Linux Config</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">Linux
 
 系统配置
 下载地址
@@ -311,33 +315,33 @@ http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-20
 ​        此时网卡ens33的ip地址为 192.168.179.100
 安装vim1[root@node0 ~]# yum -y install vim
 
-修改机器名123[root@node0 ~]#  vim / ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Maven/" title="Maven">Maven</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">Maven
-下载地址
-https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.zip
+修改机器名123[root@node0 ~]#  vim / ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Spark/" title="Spark">Spark</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">Spark
 
-配置文件settings.xml12345678910&lt; !--远程仓库地址-- &gt;&lt;mirror&gt;    &lt;id&gt;alimaven&lt;/id&gt;    &lt;name&gt;aliyun maven&lt;/name&gt;    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        &lt;/mirror&gt;    &lt; !--本地仓库-- &gt;&lt;localRepository&gt;D:\maven-repo-1&lt;/localRepository&gt;</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Zookeeper/" title="ZooKeeper">ZooKeeper</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span></div><div class="content">ZooKeeper
 
-环境部署
-官方文档
-https://zookeeper.apache.org/doc/r3.4.14/index.html
-下载地址
-https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/
-安装目录
-/opt/bigdata/zookeeper
-部署规划
-node0单节点；
-node1 node2 node3  配置为zookeeper集群。
 
-单节点
-单节点模式
-https://zookeeper.apache.org/doc/r3.4.14/zookeeperStarted.html#sc_InstallingSingleMode
 
-下载使用xftp上传安装包或者通过wget等工具在线下载。
-123[hadoop@node0 ~]$ cd /opt/bigdata/zookeeper/# 此处使用wget在线下载[hadoop@node0 zookeeper]$ wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zook ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/HBase_Shell/" title="HBase_Shell">HBase_Shell</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/HBase/" title="HBase">HBase</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS">Hadoop HDFS</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/Hadoop/" title="Hadoop">Hadoop</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce">Hadoop_MapReduce</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+
+
+Term
+Meaning
+
+
+
+Application
+User program built on Spark. Consists of a driver program and executors on the cluster.
+
+
+Application jar
+A jar containing the user’s Spark application. In some cases users will want to create an “uber jar” containing their application along with its dependencies. The user’s jar should never include Hadoop or Spark libraries, however, these will be added at runtime.
+
+
+Driver
+The process running the main() function of the application and creating the Spark ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/HBase/" title="HBase">HBase</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/HBase_Shell/" title="HBase_Shell">HBase_Shell</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/Hadoop/" title="Hadoop环境部署">Hadoop环境部署</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/Hadoop_HDFS/" title="Hadoop HDFS">Hadoop HDFS</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/03/23/Hadoop_YARN/" title="Hadoop_YARN">Hadoop_YARN</a><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/QA/"><span class="card-category-list-name">QA</span><span class="card-category-list-count">1</span></a></li>
-            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">March 2022</span><span class="card-archive-list-count">18</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-03-31T12:08:51.322Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="图难于其易,为大于其细,知者不言,言者不知,善者不辩,辩者不善,知者不博,博者不知,其安易持,其未兆易谋,其脆易泮,其微易散,为之于未有,制治于未乱,合抱之木生于毫末,九层之台起于累土,千里之行始于足下,其出弥远,其知弥少,乐与耳，过客止,三人行，则必有我师焉,方而不割,廉而不刿,直而不肆,光而不耀,君子讷于言而敏于行,同于道者，道亦乐得之,富贵而骄自遗其咎,天下莫柔弱于水,而攻坚强者莫之能胜,人之生也柔弱，其死也坚强,草木之生也柔弱，其死也枯槁,坚强者生之徒,柔弱者死之徒,江海所以能为百谷王者,以其善下之,故能为百谷王,多言数穷,不如守中,处无为之事,行不言之教,为学日益,为道日损,损之又损,以至于无为,无为而无不为,致虚极，守静笃,万物并作吾以观复,重为轻根,静为躁君,是以圣人终日行不离辎重,虽有荣观，燕处超然" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">March 2022</span><span class="card-archive-list-count">18</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">18</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-03-31T12:23:38.227Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="图难于其易,为大于其细,知者不言,言者不知,善者不辩,辩者不善,知者不博,博者不知,其安易持,其未兆易谋,其脆易泮,其微易散,为之于未有,制治于未乱,合抱之木生于毫末,九层之台起于累土,千里之行始于足下,其出弥远,其知弥少,乐与耳，过客止,三人行，则必有我师焉,方而不割,廉而不刿,直而不肆,光而不耀,君子讷于言而敏于行,同于道者，道亦乐得之,富贵而骄自遗其咎,天下莫柔弱于水,而攻坚强者莫之能胜,人之生也柔弱，其死也坚强,草木之生也柔弱，其死也枯槁,坚强者生之徒,柔弱者死之徒,江海所以能为百谷王者,以其善下之,故能为百谷王,多言数穷,不如守中,处无为之事,行不言之教,为学日益,为道日损,损之又损,以至于无为,无为而无不为,致虚极，守静笃,万物并作吾以观复,重为轻根,静为躁君,是以圣人终日行不离辎重,虽有荣观，燕处超然" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
