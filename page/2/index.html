@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-10-14 12:28:14'
+  postUpdate: '2022-10-14 13:06:44'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -144,158 +144,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/Spark_Python_GraphFrames/" title="No title">No title</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-19T11:40:43.607Z" title="Created 2022-05-19 19:40:43">2022-05-19</time></span></div><div class="content">Spark GraphFrames
-官方文档：https://graphframes.github.io/graphframes/docs/_site/quick-start.html
-源码：https://github.com/graphframes/graphframes
-练习：https://docs.databricks.com/_static/notebooks/graphframes-user-guide-py.html
-
-安装Pip安装graphframes库1(python37) PS C:\Users\Qingyuan_Qu&gt; pip3 install graphframes
-
-Java依赖包
-在线下载
-
-12# 默认会下载到用户目录的`.ivy`文件夹内。(python37) PS C:\Users\Qingyuan_Qu&gt; pyspark --packages graphframes:graphframes:0.8.2-spark2.4-s_2.11
-
-
-spark-packages.org
-
-1https://spark-packages.org/p ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/01/Flume/" title="No title">No title</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-01T00:54:13.912Z" title="Created 2022-05-01 08:54:13">2022-05-01</time></span></div><div class="content">$FLUME_HOME&#x2F;conf12[zhangsan@node0 conf]$ mv flume-env.sh.template flume-env.sh[zhangsan@node0 conf]$ mv flume-conf.properties.template flume-conf.properties
-
-
-
-配置环境变量Hello Worldsink 到logger配置文件123456789101112131415161718192021# 为agent a1 的各组件命名a1.sources = r1a1.sinks = k1a1.channels = c1# agent a1的一个source在端口44444监听数据a1.sources.r1.type = netcata1.sources.r1.bind = localhosta1.sources.r1.port = 44444# 将event数据记录到控制台a1.sinks.k1.type = logger# 使用一个channel在内存中缓存eventsa1.channels.c1.type = memor ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/28/ClusterManager/" title="No title">No title</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-28T06:57:21.414Z" title="Created 2022-04-28 14:57:21">2022-04-28</time></span></div><div class="content">新增Hadoop节点Master
-slaves新增node4
-配置分发( hosts, slaves )
-
-node4启动DataNode和NodeManager
-12[zhangsan@node4 default]$ sbin/hadoop-daemon.sh start datanode[zhangsan@node4 default]$ sbin/yarn-daemon.sh start nodemanager
-
-
-
-刷新节点状态1[zhangsan@node1 ~]$ hdfs dfsadmin -refreshNodes
-
-
-
-负载均衡123456# 设置负载均衡带宽[zhangsan@node1 ~]$ hdfs dfsadmin -setBalancerBandwidth bytes# 磁盘使用率阈值，单位为百分比。此命令会产生一个进程，并在logs目录输出日志；负载均衡完毕，进程结束。# -threshold# 默认值:10%。该值确保每个DataNode上的磁盘使用率与集群整体使用率的差距不超过10%。[zhangsan@node1 ~]$ start-balancer ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/20/2_Dimension_Data/" title="No title">No title</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-20T08:27:46.130Z" title="Created 2022-04-20 16:27:46">2022-04-20</time></span></div><div class="content">
-SQL
-Spark DataFrame
-Hive
-Pandas DataFrame
-HBase
-MongoDB
-Spark RDD
-
-MySQL123show databases;show tables;use database_study;
-
-
-
-二维数据查看元数据
-
-
-
-
-
-
-
-SQL
-DESCRIBE table_a 或 DESC table_a
-
-
-Pandas
-
-
-
-HBase
-describe &#39;Student&#39;
-
-
-Hive
-
-
-
-SparkRDD
-
-
-
-SparkDataFrame
-spark_df.printSchema()
-
-
-SparkSQL
-
-
-
-修改计数
-
-
-
-
-
-
-
-SQL
-
-
-
-Pandas
-
-
-
-HBase
-
-
-
-Hive
-
-
-
-SparkRDD
-spark_rdd.count()
-
-
-SparkDataFrame
-spark_df.count()
-
-
-SparkSQL
-
-
-
-全表扫描
-
-
-
-
-
-
-
-SQL
-
-
-
-Pandas
-
-
-
-HBase
-
-
-
-Hive
-
-
-
-SparkRDD
-
-
-
-SparkDataFrame
-spark_df ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/20/Spark_Python_Rdd/" title="No title">No title</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-20T07:33:53.837Z" title="Created 2022-04-20 15:33:53">2022-04-20</time></span></div><div class="content">RDD
-A Resilient Distributed Dataset (RDD), the basic abstraction in Spark. Represents an immutable(不可变的), partitioned collection(集合) of elements that can be operated o in parallel. This class contains the basic operations available on all RDDs, such as map, filter, and persist. 
-In addition,
-PairRDDFunctions(类) contains operations available only on RDDs of key-value pairs, such as groupByKey and join; 
-DoubleRDDFunctions contains operations available only on RDDs of Doubles; 
-SequenceFileRDDFunc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/20/Spark_Python_RDD_Case/" title="No title">No title</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-20T03:57:33.946Z" title="Created 2022-04-20 11:57:33">2022-04-20</time></span></div><div class="content">RDD 综合案例基于物品的协同过滤123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105import osfrom pyspark import SparkContext, SparkConfimport pandas as pdfrom scipy import statsfile_path = &quot;&quot;def set_spark_context(env):    global file_path    sparkConf = SparkConf()    sparkConf.setAppName(&quot;movie_recommend&quot;)    if env == &#x27;local&#x27; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/HBase/" title="HBase">HBase</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/HBase/">HBase</a></span></div><div class="content">HBase
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">41</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">26</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/HBase/" title="HBase">HBase</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/HBase/">HBase</a></span></div><div class="content">HBase
 
 环境部署
 官方文档
@@ -372,11 +221,130 @@ Hadoop v1 的JobTracker存在并发问题，一个Hadoop Cluster的限制在3000
 YARN的目标是能够扩展到10000个节点；
 YARN允许在同一个集群中同时运行不同版本的MapReduce；
 
-YARN是一个分布式调度器，负责以下两个活 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/HBase_Theory/" title="HBase架构、数据读写、Region管理、集群管理">HBase架构、数据读写、Region管理、集群管理</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/HBase_Thrift/" title="HBase Thrift">HBase Thrift</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/Hive/" title="Hive">Hive</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/Java_CLASSPATH/" title="Java环境变量CLASSPATH的作用">Java环境变量CLASSPATH的作用</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/Kettle_CDC_Trigger/" title="基于触发器的CDC">基于触发器的CDC</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+YARN是一个分布式调度器，负责以下两个活 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Hadoop_MapReduce/" title="Hadoop_MapReduce">Hadoop_MapReduce</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hadoop/">Hadoop</a></span></div><div class="content">MapReduce工作流程
+
+不同的Map任务之间不会进行通信
+
+不同的Reduce任务之间也不会发生任何信息交换
+
+用户不能显式地从一台机器向另一台机器发送消息
+
+所有的数据交换都是通过MapReduce框架自身去实现的
+
+
+Split
+HDFS 以固定大小的block 为基本单位存储数据，而对于MapReduce 而言，其处理单位是split。split 是一个逻辑概念，它只包含一些元数据信息，比如数据起始位置、数据长度、数据所在节点等。它的划分方法完全由用户自己决定。
+Map数量
+Hadoop为每个split创建一个Map任务，split 的多少决定了Map任务的数目。大多数情况下，理想的分片大小是一个HDFS块
+Reduce数量与Partitioner有关；
+最优的Reduce任务个数取决于集群中可用的reduce任务槽(slot)的数目
+•通常设置比reduce任务槽数目稍微小一些的Reduce任务个数（这样可以预留一些系统资源处理可能发生的错误）
+Shuffle过程详解
+Map端Shuffle
+•每个Map任务分配一个缓存，默认100MB；
+•设置溢写比例0.8
+•分区默认 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Linux/" title="Linux">Linux</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">基础知识控制台符号12$ : 普通用户# : root用户
+
+clear1清空屏幕
+
+执行脚本12$ ./hello.sh  # 需要有执行权限bash hello.sh # hello.sh不需要有执行权限
+
+历史命令
+键盘 ↑ 箭头
+
+history
+
+
+目录符号123.  : 当前目录.. : 父级目录~  : 用户目录
+
+
+
+文件、目录操作https://alidocs.dingtalk.com/mind/edit?utm_medium=im_group_file&amp;utm_source=im&amp;dentryKey=ROqBNqgk4TDDV3qJ&amp;type=m&amp;mode=2&amp;sheetId=sheet1
+
+ls12list : 罗列ll : ls -al
+cd1change directory : 变更目录
+
+pwd1print work directory : 打印工作目录
+
+mkdir1make directory：创建文件夹
+
+创建文本文件touch1touch filename # 创建文件
+
+echo12echo &#x27;he ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Maven/" title="Maven">Maven</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Maven/">Maven</a></span></div><div class="content">Maven
+下载地址
+https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.zip
+学习Maven
+https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+
+配置文件settings.xml12345678910&lt; !--远程仓库地址-- &gt;&lt;mirror&gt;    &lt;id&gt;alimaven&lt;/id&gt;    &lt;name&gt;aliyun maven&lt;/name&gt;    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        &lt;/mirror&gt;    &lt; !--本地仓库-- &gt;&lt;localRepository ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Linux_config/" title="Linux系统配置">Linux系统配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">
+下载地址
+http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso
+
+安装CentOS设置root用户密码，添加用户zhangsan，设置为Administrator用户
+配置IP
+输入ip addr 查看网卡ip地址，可以看到网卡ens33没有分配到ip。
+
+
+
+查看VMWare子网
+
+
+
+你配置的静态IP需要为192.168.179.x ，其中 2&lt;x&lt;128。此处我们设置静态IP为192.168.179.100， 编辑网卡ens33对应的配置文件vi /etc/sysconfig/network-scripts/ifcfg-ens33
+
+重启网络服务 systemctl restart network
+
+
+
+​        此时网卡ens33的ip地址为 192.168.179.100
+安装vim1[root@node0 ~]# yum -y install vim
+
+修改机器名123[root@node0 ~]#  vim /etc/hostnam ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Spark/" title="Spark">Spark</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Spark/">Spark</a></span></div><div class="content">Spark
+
+
+
+
+
+
+
+Term
+Meaning
+
+
+
+Application
+User program built on Spark. Consists of a driver program and executors on the cluster.
+
+
+Application jar
+A jar containing the user’s Spark application. In some cases users will want to create an “uber jar” containing their application along with its dependencies. The user’s jar should never include Hadoop or Spark libraries, however, these will be added at runtime.
+
+
+Driver
+The process running the main() function of the application and creating the Spark ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/03/23/Zookeeper/" title="ZooKeeper">ZooKeeper</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ZooKeeper/">ZooKeeper</a></span></div><div class="content">ZooKeeper
+
+环境部署
+官方文档
+https://zookeeper.apache.org/doc/r3.4.14/index.html
+下载地址
+https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/
+安装目录
+/opt/bigdata/zookeeper
+部署规划
+node0单节点；
+node1 node2 node3  配置为zookeeper集群。
+
+单节点
+单节点模式
+https://zookeeper.apache.org/doc/r3.4.14/zookeeperStarted.html#sc_InstallingSingleMode
+
+下载使用xftp上传安装包或者通过wget等工具在线下载。
+123[zhangsan@node0 ~]$ cd /opt/bigdata/zookeeper/# 此处使用wget在线下载[zhangsan@node0 zookeeper]$ wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">41</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">26</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/HBase_Theory/" title="HBase架构、数据读写、Region管理、集群管理">HBase架构、数据读写、Region管理、集群管理</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/HBase_Thrift/" title="HBase Thrift">HBase Thrift</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/Hive/" title="Hive">Hive</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/Java_CLASSPATH/" title="Java环境变量CLASSPATH的作用">Java环境变量CLASSPATH的作用</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/14/Kettle_CDC_Trigger/" title="基于触发器的CDC">基于触发器的CDC</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
-            
+            <a class="card-more-btn" href="/categories/" title="More">
+    <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/HBase/"><span class="card-category-list-name">HBase</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hadoop/"><span class="card-category-list-name">Hadoop</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hive/"><span class="card-category-list-name">Hive</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/QA/"><span class="card-category-list-name">QA</span><span class="card-category-list-count">1</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/HBase/" style="font-size: 1.5em; color: #99a9bf">HBase</a> <a href="/tags/HBase-Region%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">HBase Region管理</a> <a href="/tags/HBase-Shell/" style="font-size: 1.1em; color: #999">HBase Shell</a> <a href="/tags/HBase-Thrift/" style="font-size: 1.1em; color: #999">HBase Thrift</a> <a href="/tags/HBase%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.1em; color: #999">HBase伪分布式</a> <a href="/tags/HBase%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.1em; color: #999">HBase完全分布式</a> <a href="/tags/HBase%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%86%99/" style="font-size: 1.1em; color: #999">HBase数据读写</a> <a href="/tags/HBase%E6%9E%B6%E6%9E%84/" style="font-size: 1.1em; color: #999">HBase架构</a> <a href="/tags/HBase%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">HBase环境搭建</a> <a href="/tags/HBase%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">HBase集群管理</a> <a href="/tags/Hadoop/" style="font-size: 1.5em; color: #99a9bf">Hadoop</a> <a href="/tags/Linux/" style="font-size: 1.3em; color: #99a1ac">Linux</a> <a href="/tags/MapReduce/" style="font-size: 1.3em; color: #99a1ac">MapReduce</a> <a href="/tags/Source-Code/" style="font-size: 1.1em; color: #999">Source Code</a> <a href="/tags/Spark-DataFrame-Spark-SQL/" style="font-size: 1.1em; color: #999">Spark DataFrame, Spark SQL</a> <a href="/tags/YARN/" style="font-size: 1.1em; color: #999">YARN</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.3em; color: #99a1ac">环境搭建</a> <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 1.1em; color: #999">过滤器</a> <a href="/tags/%E9%99%90%E5%AE%9A%E7%AC%A6/" style="font-size: 1.1em; color: #999">限定符</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">October 2022</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">July 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">June 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">May 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">April 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">March 2022</span><span class="card-archive-list-count">23</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">November 2021</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">40</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-10-14T04:28:14.302Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/HBase/"><span class="card-category-list-name">HBase</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hadoop/"><span class="card-category-list-name">Hadoop</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hive/"><span class="card-category-list-name">Hive</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Kettle/"><span class="card-category-list-name">Kettle</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Maven/"><span class="card-category-list-name">Maven</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MongoDB/"><span class="card-category-list-name">MongoDB</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/HBase/" style="font-size: 1.5em; color: #99a9bf">HBase</a> <a href="/tags/HBase-Region%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">HBase Region管理</a> <a href="/tags/HBase-Shell/" style="font-size: 1.1em; color: #999">HBase Shell</a> <a href="/tags/HBase-Thrift/" style="font-size: 1.1em; color: #999">HBase Thrift</a> <a href="/tags/HBase%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.1em; color: #999">HBase伪分布式</a> <a href="/tags/HBase%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.1em; color: #999">HBase完全分布式</a> <a href="/tags/HBase%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%86%99/" style="font-size: 1.1em; color: #999">HBase数据读写</a> <a href="/tags/HBase%E6%9E%B6%E6%9E%84/" style="font-size: 1.1em; color: #999">HBase架构</a> <a href="/tags/HBase%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">HBase环境搭建</a> <a href="/tags/HBase%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">HBase集群管理</a> <a href="/tags/Hadoop/" style="font-size: 1.5em; color: #99a9bf">Hadoop</a> <a href="/tags/Linux/" style="font-size: 1.3em; color: #99a1ac">Linux</a> <a href="/tags/MapReduce/" style="font-size: 1.3em; color: #99a1ac">MapReduce</a> <a href="/tags/MongoDB-Python/" style="font-size: 1.1em; color: #999">MongoDB Python</a> <a href="/tags/MongoDB%E4%BD%BF%E7%94%A8/" style="font-size: 1.1em; color: #999">MongoDB使用</a> <a href="/tags/MongoDB%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" style="font-size: 1.1em; color: #999">MongoDB环境部署</a> <a href="/tags/PySpark/" style="font-size: 1.3em; color: #99a1ac">PySpark</a> <a href="/tags/Source-Code/" style="font-size: 1.1em; color: #999">Source Code</a> <a href="/tags/Spark-DataFrame/" style="font-size: 1.1em; color: #999">Spark DataFrame</a> <a href="/tags/Spark-GraphFrames/" style="font-size: 1.1em; color: #999">Spark GraphFrames</a> <a href="/tags/Spark-SQL/" style="font-size: 1.1em; color: #999">Spark SQL</a> <a href="/tags/Spark%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" style="font-size: 1.1em; color: #999">Spark环境部署</a> <a href="/tags/YARN/" style="font-size: 1.1em; color: #999">YARN</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.3em; color: #99a1ac">环境搭建</a> <a href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/" style="font-size: 1.1em; color: #999">过滤器</a> <a href="/tags/%E9%99%90%E5%AE%9A%E7%AC%A6/" style="font-size: 1.1em; color: #999">限定符</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">October 2022</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">June 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">May 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">April 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">March 2022</span><span class="card-archive-list-count">31</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">41</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-10-14T05:06:44.418Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
