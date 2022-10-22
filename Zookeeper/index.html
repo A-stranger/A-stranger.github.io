@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>ZooKeeper | 学习大数据</title><meta name="author" content="XiaoQu"><meta name="copyright" content="XiaoQu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ZooKeeper  环境部署 官方文档 https:&#x2F;&#x2F;zookeeper.apache.org&#x2F;doc&#x2F;r3.4.14&#x2F;index.html 下载地址 https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;zookeeper&#x2F;zookeeper-3.4.14&#x2F; 安装目录 &#x2F;opt&#x2F;bigdata&#x2F;zookeeper 部署规划 node0单节点； node1 node2 node3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZooKeeper">
+<meta property="og:url" content="http://www.studybigdata.cn/Zookeeper/index.html">
+<meta property="og:site_name" content="学习大数据">
+<meta property="og:description" content="ZooKeeper  环境部署 官方文档 https:&#x2F;&#x2F;zookeeper.apache.org&#x2F;doc&#x2F;r3.4.14&#x2F;index.html 下载地址 https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;zookeeper&#x2F;zookeeper-3.4.14&#x2F; 安装目录 &#x2F;opt&#x2F;bigdata&#x2F;zookeeper 部署规划 node0单节点； node1 node2 node3">
+<meta property="og:locale">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-23T07:55:26.000Z">
+<meta property="article:modified_time" content="2022-10-14T05:05:22.866Z">
+<meta property="article:author" content="XiaoQu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.studybigdata.cn/Zookeeper/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-qvYtDCUlcS"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?057fccfc2b1bef4c0d79224d80660be0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ZooKeeper',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-14 13:05:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">38</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">28</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">ZooKeeper</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-14T05:05:22.866Z" title="Updated 2022-10-14 13:05:22">2022-10-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ZooKeeper/">ZooKeeper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ZooKeeper"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 style="color:red; text-align:center">ZooKeeper</h1>
+
+<h1 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h1><blockquote>
+<p><strong>官方文档</strong></p>
+<p><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/doc/r3.4.14/index.html">https://zookeeper.apache.org/doc/r3.4.14/index.html</a></p>
+<p><strong>下载地址</strong></p>
+<p><a target="_blank" rel="noopener" href="https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/">https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/</a></p>
+<p><strong>安装目录</strong></p>
+<p><code>/opt/bigdata/zookeeper</code></p>
+<p><strong>部署规划</strong></p>
+<p><code>node0</code>单节点；</p>
+<p><code>node1</code> <code>node2</code> <code>node3</code>  配置为<code>zookeeper</code>集群。</p>
+</blockquote>
+<h2 id="单节点"><a href="#单节点" class="headerlink" title="单节点"></a>单节点</h2><blockquote>
+<p><strong>单节点模式</strong></p>
+<p><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/doc/r3.4.14/zookeeperStarted.html#sc_InstallingSingleMode">https://zookeeper.apache.org/doc/r3.4.14/zookeeperStarted.html#sc_InstallingSingleMode</a></p>
+</blockquote>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>使用<code>xftp</code>上传安装包或者通过<code>wget</code>等工具在线下载。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node0 ~]$ cd /opt/bigdata/zookeeper/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此处使用wget在线下载</span></span><br><span class="line">[zhangsan@node0 zookeeper]$ wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node0 bigdata]$ cd zookeeper/</span><br><span class="line">[zhangsan@node0 zookeeper]$ ll</span><br><span class="line">total 36796</span><br><span class="line">-rw-rw-r--. 1 zhangsan zhangsan 37676320 Mar  1 22:09 zookeeper-3.4.14.tar.gz</span><br><span class="line">[zhangsan@node0 zookeeper]$ tar -zxf zookeeper-3.4.14.tar.gz </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建软连接（可选）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">目的是，如果我在目录/opt/bigdata/zookeeper/下安装多个版本的zookeeper，我的环境变量文件无需修改，只需要修改default软连接的指向，让其指向我想使用的版本。</span></span><br><span class="line">[zhangsan@node0 zookeeper]$ ln -s zookeeper-3.4.14 default</span><br><span class="line">[zhangsan@node0 zookeeper]$ ll</span><br><span class="line">total 36800</span><br><span class="line">lrwxrwxrwx.  1 zhangsan zhangsan       16 Mar  1 22:17 default -&gt; zookeeper-3.4.14</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h5 id="zoo-cfg"><a href="#zoo-cfg" class="headerlink" title="zoo.cfg"></a>zoo.cfg</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 ZOOKEEPER_HOME 目录下创建个data文件夹</span></span><br><span class="line">[zhangsan@node0 default]$ mkdir data</span><br><span class="line"></span><br><span class="line">[zhangsan@node0 zookeeper]$ cd zookeeper-3.4.13/conf/</span><br><span class="line">[zhangsan@node0 conf]$ cp zoo_sample.cfg zoo.cfg</span><br><span class="line">[zhangsan@node0 conf]$ vim zoo.cfg </span><br><span class="line"></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只需要下面这行</span></span><br><span class="line">dataDir=/opt/bigdata/zookeeper/default/data </span><br><span class="line">clientPort=2181</span><br></pre></td></tr></table></figure>
+
+<h5 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h5><p>配置环境变量文件<code>~/.bashrc</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ZOOKEEPER_HOME=/opt/bigdata/zookeeper/default/</span><br><span class="line">export PATH=$ZOOKEEPER_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>记得<code>source</code>一下，让环境变量生效。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node0 ~]$ source .bashrc </span><br></pre></td></tr></table></figure>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node0 ~]$ zkServer.sh start</span><br><span class="line">[zhangsan@node0 ~]$ jps</span><br><span class="line">4064 Jps</span><br><span class="line">4027 QuorumPeerMain</span><br><span class="line"></span><br><span class="line">[zhangsan@node0 ~]$ zkServer.sh status</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /usr/zookeeper/zookeeper-3.4.13/bin/../conf/zoo.cfg</span><br><span class="line">Mode: standalone</span><br></pre></td></tr></table></figure>
+
+<p>data中存放了日志和进程号<code>pid</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node0 default]$ tree data/</span><br><span class="line">data/</span><br><span class="line">└── zookeeper_server.pid</span><br><span class="line"></span><br><span class="line">0 directories, 1 file</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node0 ~]$ zkServer.sh stop</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h3><ul>
+<li>连接</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node0 zookeeper-3.4.13]$ clear</span><br><span class="line">[zhangsan@node0 zookeeper-3.4.13]$ bin/zkCli.sh -server 127.0.0.1:2181</span><br><span class="line">Welcome to ZooKeeper!</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>创建</p>
+</li>
+<li><p>是否存在</p>
+</li>
+<li><p>删除</p>
+</li>
+<li><p>获取</p>
+</li>
+<li><p>设置</p>
+</li>
+<li><p>退出</p>
+</li>
+</ul>
+<h2 id="副本模式"><a href="#副本模式" class="headerlink" title="副本模式"></a>副本模式</h2><blockquote>
+<p><strong>副本模式</strong></p>
+<p><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/doc/r3.4.14/zookeeperStarted.html#sc_RunningReplicatedZooKeeper">https://zookeeper.apache.org/doc/r3.4.14/zookeeperStarted.html#sc_RunningReplicatedZooKeeper</a></p>
+</blockquote>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>在第一个节点上配置<code>ZooKeeper</code>配置文件<code>zoo.cfg</code>和环境变量文件<code>~/.bashrc</code>。</p>
+<h5 id="zoo-cfg-1"><a href="#zoo-cfg-1" class="headerlink" title="zoo.cfg"></a>zoo.cfg</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node1 conf]$ cat zoo.cfg </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of ticks that the initial</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The number of ticks that can pass between</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"></span><br><span class="line">dataDir=/opt/bigdata/zookeeper/default/data</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">对客户端提供服务端口</span></span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">server.x=nodename:节点通信端口:选举端口</span></span><br><span class="line">server.1=node1:2888:3888</span><br><span class="line">server.2=node2:2888:3888</span><br><span class="line">server.3=node3:2888:3888</span><br></pre></td></tr></table></figure>
+
+<p>配置完成后，使用<code>scp</code>命令将配置好的<code>ZooKeeper</code>软件分发到其他节点的<code>bigdata</code>目录，复制到其他节点的软连接会失效，记得重新创建一个软连接哟。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node1 bigdata]$ scp -r zookeeper node3:`pwd`</span><br></pre></td></tr></table></figure>
+
+<p>在每个节点的<code>/opt/bigdata/zookeeper/default/data</code>的目录下创建一个<code>myid</code>文件，内容为server.<code>x</code>中的<code>x</code>。</p>
+<h5 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h5><p>环境变量文件<code>~/.bashrc</code>与单节点配置相同。配置完成后，将环境变量文件<code>~/.bashrc</code>，分发到其他节点。分发完成后，记得<code>source</code>一下，让其生效。</p>
+<h3 id="集群启动"><a href="#集群启动" class="headerlink" title="集群启动"></a>集群启动</h3><p>启动方式同单节点，需要在每个节点启动。查看启动状态：</p>
+<h5 id="node1"><a href="#node1" class="headerlink" title="node1"></a>node1</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node1 conf]$ zkServer.sh status</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /opt/bigdata/zookeeper/default/bin/../conf/zoo.cfg</span><br><span class="line">Mode: follower</span><br></pre></td></tr></table></figure>
+
+<h5 id="node2"><a href="#node2" class="headerlink" title="node2"></a>node2</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node2 default]$ zkServer.sh status</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /opt/bigdata/zookeeper/default/bin/../conf/zoo.cfg</span><br><span class="line">Mode: leader</span><br></pre></td></tr></table></figure>
+
+<h5 id="node3"><a href="#node3" class="headerlink" title="node3"></a>node3</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node3 default]$ zkServer.sh status</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /opt/bigdata/zookeeper/default/bin/../conf/zoo.cfg</span><br><span class="line">Mode: follower</span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>node2</code>被选举为<code>leader</code>。</p>
+<h2 id="zkfc"><a href="#zkfc" class="headerlink" title="zkfc"></a>zkfc</h2><p>Zookeeper Failover Controller，简称zkfc，是故障切换 </p>
+<p>假如 一个HBase集群中，一个·<code>Active</code>状态的<code>HMaster</code>，两个backup状态的<code>HMaster</code>，如果，活跃状态的Master挂了（也就是zookeeper上的<code>/hbase/master</code>这个临时节点没了），两个Backup状态的Master会收到通知，他们俩竞选老大。</p>
+<p>啥是竞选？</p>
+<p>就是谁成功在<code>zookeeper</code>上创建<code>/hbase/master</code>这个节点，谁就是老大；</p>
+<p><img src="/img/Zookeeper/image-20220612212948219.png" alt="image-20220612212948219"></p>
+<h2 id="ZK通知"><a href="#ZK通知" class="headerlink" title="ZK通知"></a>ZK通知</h2><p>在客户端1设置watch，监控 &#x2F;test 节点变化</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 14] get -w /test</span><br><span class="line">data2</span><br></pre></td></tr></table></figure>
+
+<p>在客户端2为 &#x2F;test设置一个新的值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 2] set /test data3</span><br></pre></td></tr></table></figure>
+
+
+
+<p>你切换到客户端1，可以看到客户端1收到了节点数据改变的通知：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 15]</span><br><span class="line">WATCHER::</span><br><span class="line"></span><br><span class="line">WatchedEvent state:SyncConnected type:NodeDataChanged path:/test</span><br></pre></td></tr></table></figure>
+
+
+
+<p>再次为 &#x2F;test设置值，客户端1不会收到通知。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">XiaoQu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://www.studybigdata.cn/Zookeeper/">http://www.studybigdata.cn/Zookeeper/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Spark/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Spark</div></div></a></div><div class="next-post pull-right"><a href="/Flume/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Flume</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">38</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">28</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">15</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/A-stranger"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">ZooKeeper</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text">环境部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%8A%82%E7%82%B9"><span class="toc-number">2.1.</span> <span class="toc-text">单节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.3.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#zoo-cfg"><span class="toc-number">2.1.3.0.1.</span> <span class="toc-text">zoo.cfg</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.3.0.2.</span> <span class="toc-text">环境变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">2.1.4.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2"><span class="toc-number">2.1.5.</span> <span class="toc-text">停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.6.</span> <span class="toc-text">基础操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%AF%E6%9C%AC%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">副本模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#zoo-cfg-1"><span class="toc-number">2.2.1.0.1.</span> <span class="toc-text">zoo.cfg</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-1"><span class="toc-number">2.2.1.0.2.</span> <span class="toc-text">环境变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E5%90%AF%E5%8A%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">集群启动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#node1"><span class="toc-number">2.2.2.0.1.</span> <span class="toc-text">node1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#node2"><span class="toc-number">2.2.2.0.2.</span> <span class="toc-text">node2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#node3"><span class="toc-number">2.2.2.0.3.</span> <span class="toc-text">node3</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zkfc"><span class="toc-number">2.3.</span> <span class="toc-text">zkfc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ZK%E9%80%9A%E7%9F%A5"><span class="toc-number">2.4.</span> <span class="toc-text">ZK通知</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Scala_File/" title="No title">No title</a><time datetime="2022-10-22T00:46:23.710Z" title="Created 2022-10-22 08:46:23">2022-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Kettle/Kettle_Clean_String/" title="kettle - 数据清理之字符串清理">kettle - 数据清理之字符串清理</a><time datetime="2022-10-20T01:55:26.000Z" title="Created 2022-10-20 09:55:26">2022-10-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Kettle/Kettle_Clean_Field/" title="kettle - 数据清理之字段清理">kettle - 数据清理之字段清理</a><time datetime="2022-10-20T01:55:26.000Z" title="Created 2022-10-20 09:55:26">2022-10-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Kettle/Kettle_CDC_Snapshot/" title="Kettle - 基于快照的CDC">Kettle - 基于快照的CDC</a><time datetime="2022-10-15T10:11:26.000Z" title="Created 2022-10-15 18:11:26">2022-10-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/HBase_Theory/" title="HBase架构、数据读写、Region管理、集群管理">HBase架构、数据读写、Region管理、集群管理</a><time datetime="2022-10-14T01:55:26.000Z" title="Created 2022-10-14 09:55:26">2022-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
