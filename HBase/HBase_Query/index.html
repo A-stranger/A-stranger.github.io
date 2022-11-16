@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>HBase 数据查询 | 学习大数据</title><meta name="keywords" content="HBase Shell,限定符,过滤器"><meta name="author" content="XiaoQu"><meta name="copyright" content="XiaoQu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="HBase数据查询数据准备创建表创建Student表，两个列族Info和Score； 12hbase(main):047:0&gt; create &amp;#x27;Student&amp;#x27;,&amp;#x27;Info&amp;#x27;,&amp;#x27;Score&amp;#x27;0 row(s) in 2.3500 seconds  插入数据批量插入            No       Info       Scor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HBase 数据查询">
+<meta property="og:url" content="http://www.studybigdata.cn/HBase/HBase_Query/index.html">
+<meta property="og:site_name" content="学习大数据">
+<meta property="og:description" content="HBase数据查询数据准备创建表创建Student表，两个列族Info和Score； 12hbase(main):047:0&gt; create &amp;#x27;Student&amp;#x27;,&amp;#x27;Info&amp;#x27;,&amp;#x27;Score&amp;#x27;0 row(s) in 2.3500 seconds  插入数据批量插入            No       Info       Scor">
+<meta property="og:locale">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-23T07:55:26.000Z">
+<meta property="article:modified_time" content="2022-11-14T13:06:56.456Z">
+<meta property="article:author" content="XiaoQu">
+<meta property="article:tag" content="HBase Shell">
+<meta property="article:tag" content="限定符">
+<meta property="article:tag" content="过滤器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.studybigdata.cn/HBase/HBase_Query/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-qvYtDCUlcS"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?057fccfc2b1bef4c0d79224d80660be0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HBase 数据查询',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-14 21:06:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/dog.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">HBase 数据查询</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-23T07:55:26.000Z" title="Created 2022-03-23 15:55:26">2022-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-11-14T13:06:56.456Z" title="Updated 2022-11-14 21:06:56">2022-11-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/HBase/">HBase</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="HBase 数据查询"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="HBase数据查询"><a href="#HBase数据查询" class="headerlink" title="HBase数据查询"></a>HBase数据查询</h1><h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><p>创建<code>Student</code>表，两个列族<code>Info</code>和<code>Score</code>；</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">hbase(main):047:0&gt;</span> create <span class="string">&#x27;Student&#x27;</span>,<span class="string">&#x27;Info&#x27;</span>,<span class="string">&#x27;Score&#x27;</span></span><br><span class="line"><span class="number">0</span> row(s) <span class="keyword">in</span> <span class="number">2.3500</span> seconds</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>批量插入</p>
+<table>
+   <tr>
+      <td rowspan="2">No</td>
+      <td colspan="2">Info</td>
+      <td colspan="3">Score</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>age</td>
+      <td>Hadoop</td>
+      <td>HBase</td>
+      <td>Spark</td>
+   </tr>
+   <tr>
+      <td>001</td>
+      <td>qiaofeng</td>
+      <td>30</td>
+      <td>93</td>
+      <td>85</td>
+      <td>70</td>
+   </tr>
+   <tr>
+      <td>002</td>
+      <td>duanyu</td>
+      <td>27</td>
+      <td>95</td>
+      <td>98</td>
+      <td>50</td>
+   </tr>
+   <tr>
+      <td>003</td>
+      <td>wangyuyan</td>
+      <td>18</td>
+      <td>95</td>
+      <td>97</td>
+      <td>92</td>
+   </tr
+</table>
+
+<h5 id="vim-data-sh"><a href="#vim-data-sh" class="headerlink" title="vim data.sh"></a>vim data.sh</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">put &#x27;Student&#x27;,&#x27;001&#x27;,&#x27;Info:name&#x27;,&#x27;qiaofeng&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;001&#x27;,&#x27;Info:age&#x27;,&#x27;30&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;001&#x27;,&#x27;Score:Hadoop&#x27;,&#x27;93&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;001&#x27;,&#x27;Score:Hbase&#x27;,&#x27;85&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;001&#x27;,&#x27;Score:Spark&#x27;,&#x27;70&#x27;</span><br><span class="line"></span><br><span class="line">put &#x27;Student&#x27;,&#x27;002&#x27;,&#x27;Info:name&#x27;,&#x27;duanyu&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;002&#x27;,&#x27;Info:age&#x27;,&#x27;27&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;002&#x27;,&#x27;Score:Hadoop&#x27;,&#x27;95&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;002&#x27;,&#x27;Score:Hbase&#x27;,&#x27;98&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;002&#x27;,&#x27;Score:Spark&#x27;,&#x27;59&#x27;</span><br><span class="line"></span><br><span class="line">put &#x27;Student&#x27;,&#x27;003&#x27;,&#x27;Info:name&#x27;,&#x27;wangyuyan&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;003&#x27;,&#x27;Info:age&#x27;,&#x27;18&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;003&#x27;,&#x27;Score:Hadoop&#x27;,&#x27;95&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;003&#x27;,&#x27;Score:Hbase&#x27;,&#x27;97&#x27;</span><br><span class="line">put &#x27;Student&#x27;,&#x27;003&#x27;,&#x27;Score:Spark&#x27;,&#x27;92&#x27;</span><br><span class="line"></span><br><span class="line">put &#x27;Student&#x27;,&#x27;10&#x27;,&#x27;Info:name&#x27;,&#x27;xuzhu&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[zhangsan@node1 ~]$ hbase shell data.sh </span><br></pre></td></tr></table></figure>
+
+<h2 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h2><h3 id="行"><a href="#行" class="headerlink" title="行"></a>行</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">hbase(main):006:0&gt;</span> scan <span class="string">&#x27;Student&#x27;</span>,<span class="variable constant_">STARTROW</span>=&gt;<span class="string">&#x27;001&#x27;</span>,<span class="variable constant_">ENDROW</span>=&gt;<span class="string">&#x27;003&#x27;</span></span><br><span class="line"><span class="variable constant_">ROW</span>                        <span class="variable constant_">COLUMN</span>+<span class="variable constant_">CELL</span>                                                   </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Info:</span>age, timestamp=<span class="number">1668417929087</span>, value=<span class="number">30</span>             </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Info:</span>name, timestamp=<span class="number">1668417819932</span>, value=qiaofeng     </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Score:</span>Hadoop, timestamp=<span class="number">1668417929366</span>, value=<span class="number">93</span>         </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Score:</span>Hbase, timestamp=<span class="number">1668417929388</span>, value=<span class="number">85</span>         </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Score:</span>Spark, timestamp=<span class="number">1668417929400</span>, value=<span class="number">70</span>         </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Info:</span>age, timestamp=<span class="number">1668417929434</span>, value=<span class="number">27</span>             </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Info:</span>name, timestamp=<span class="number">1668417929414</span>, value=duanyu       </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Score:</span>Hadoop, timestamp=<span class="number">1668417929448</span>, value=<span class="number">95</span>         </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Score:</span>Hbase, timestamp=<span class="number">1668417929463</span>, value=<span class="number">98</span>         </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Score:</span>Spark, timestamp=<span class="number">1668417929481</span>, value=<span class="number">50</span>         </span><br><span class="line"><span class="number">2</span> row(s) <span class="keyword">in</span> <span class="number">0.0290</span> seconds</span><br></pre></td></tr></table></figure>
+
+<h3 id="列"><a href="#列" class="headerlink" title="列"></a>列</h3><h5 id="粒度：列族"><a href="#粒度：列族" class="headerlink" title="粒度：列族"></a>粒度：列族</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">hbase(main):003:0&gt;</span> get <span class="string">&#x27;Student&#x27;</span>,<span class="string">&#x27;001&#x27;</span>,<span class="variable constant_">COLUMN</span>=&gt;<span class="string">&#x27;Info&#x27;</span></span><br><span class="line"><span class="variable constant_">COLUMN</span>                     <span class="variable constant_">CELL</span>                                                           </span><br><span class="line"> <span class="symbol">Info:</span>age                  timestamp=<span class="number">1668417929087</span>, value=<span class="number">30</span>                             </span><br><span class="line"> <span class="symbol">Info:</span>name                 timestamp=<span class="number">1668417819932</span>, value=qiaofeng                       </span><br><span class="line"><span class="number">1</span> row(s) <span class="keyword">in</span> <span class="number">0.1410</span> seconds</span><br></pre></td></tr></table></figure>
+
+<h5 id="粒度：列"><a href="#粒度：列" class="headerlink" title="粒度：列"></a>粒度：列</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">hbase(main):004:0&gt;</span> get <span class="string">&#x27;Student&#x27;</span>,<span class="string">&#x27;001&#x27;</span>,<span class="variable constant_">COLUMN</span>=&gt;<span class="string">&#x27;Info:name&#x27;</span></span><br><span class="line"><span class="variable constant_">COLUMN</span>                     <span class="variable constant_">CELL</span>                                                          </span><br><span class="line"> <span class="symbol">Info:</span>name                 timestamp=<span class="number">1668417819932</span>, value=qiaofeng                      </span><br><span class="line"><span class="number">1</span> row(s) <span class="keyword">in</span> <span class="number">0.0110</span> seconds</span><br></pre></td></tr></table></figure>
+
+<h3 id="行列组合"><a href="#行列组合" class="headerlink" title="行列组合"></a>行列组合</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">hbase(main):007:0&gt;</span> scan <span class="string">&#x27;Student&#x27;</span>,<span class="variable constant_">COLUMN</span>=&gt;<span class="string">&#x27;Info&#x27;</span>,<span class="variable constant_">STARTROW</span>=&gt;<span class="string">&#x27;001&#x27;</span>,<span class="variable constant_">ENDROW</span>=&gt;<span class="string">&#x27;003&#x27;</span></span><br><span class="line"><span class="variable constant_">ROW</span>                        <span class="variable constant_">COLUMN</span>+<span class="variable constant_">CELL</span>                                                   </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Info:</span>age, timestamp=<span class="number">1668417929087</span>, value=<span class="number">30</span>             </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Info:</span>name, timestamp=<span class="number">1668417819932</span>, value=qiaofeng     </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Info:</span>age, timestamp=<span class="number">1668417929434</span>, value=<span class="number">27</span>             </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Info:</span>name, timestamp=<span class="number">1668417929414</span>, value=duanyu       </span><br><span class="line"><span class="number">2</span> row(s) <span class="keyword">in</span> <span class="number">0.0180</span> seconds</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="过滤器查询"><a href="#过滤器查询" class="headerlink" title="过滤器查询"></a>过滤器查询</h2><p><code>get</code>和<code>scan</code>都可以使用过滤器(<code>Filter</code>)来设置查询条件。</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="KV"><a href="#KV" class="headerlink" title="KV"></a>KV</h4><h5 id="key"><a href="#key" class="headerlink" title="key"></a>key</h5><h5 id="value"><a href="#value" class="headerlink" title="value"></a>value</h5><h5 id="family"><a href="#family" class="headerlink" title="family"></a>family</h5><h5 id="column"><a href="#column" class="headerlink" title="column"></a>column</h5><h5 id="Qualifier"><a href="#Qualifier" class="headerlink" title="Qualifier"></a>Qualifier</h5><h5 id="Single"><a href="#Single" class="headerlink" title="Single"></a>Single</h5><h5 id="Inclusive"><a href="#Inclusive" class="headerlink" title="Inclusive"></a>Inclusive</h5><h3 id="过滤器语法"><a href="#过滤器语法" class="headerlink" title="过滤器语法"></a>过滤器语法</h3><p><code>scan/get &#39;表名&#39;，&#123;FILTER=&gt; &quot;过滤器 ( 比较运算符，&#39;比较器&#39;)&quot;&#125;</code></p>
+<h5 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">hbase(main):078:0&gt;</span> show_filters</span><br><span class="line"></span><br><span class="line">RowFilter</span><br><span class="line">PrefixFilter</span><br><span class="line">InclusiveStopFilter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">FamilyFilter</span><br><span class="line"></span><br><span class="line">QualifierFilter</span><br><span class="line"></span><br><span class="line">ColumnPrefixFilter</span><br><span class="line">ColumnRangeFilter</span><br><span class="line">ColumnCountGetFilter</span><br><span class="line"></span><br><span class="line">DependentColumnFilter</span><br><span class="line"></span><br><span class="line">SingleColumnValueFilter</span><br><span class="line"></span><br><span class="line">SingleColumnValueExcludeFilter</span><br><span class="line">FirstKeyOnlyFilter</span><br><span class="line"></span><br><span class="line">ValueFilter</span><br><span class="line">TimestampsFilter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MultipleColumnPrefixFilter</span><br><span class="line"></span><br><span class="line">PageFilter</span><br><span class="line">KeyOnlyFilter <span class="comment">#只返回每个KV的Key的过滤器（value将被重写为空)</span></span><br><span class="line">ColumnPaginationFilter</span><br></pre></td></tr></table></figure>
+
+<h5 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h5><table>
+<thead>
+<tr>
+<th><strong>比较器</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BinaryComparator</td>
+<td>匹配完整字节数组</td>
+</tr>
+<tr>
+<td>BinaryPrefixComparator</td>
+<td>匹配字节数组前缀</td>
+</tr>
+<tr>
+<td>BitComparator</td>
+<td>匹配比特位</td>
+</tr>
+<tr>
+<td>NullComparator</td>
+<td>匹配空值</td>
+</tr>
+<tr>
+<td>RegexStringComparator</td>
+<td>匹配正则表达式</td>
+</tr>
+<tr>
+<td>SubstringComparator</td>
+<td>匹配子字符串</td>
+</tr>
+</tbody></table>
+<h5 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h5><table>
+<thead>
+<tr>
+<th><strong>比较运算符</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>不等于</td>
+</tr>
+</tbody></table>
+<h3 id="过滤器分类"><a href="#过滤器分类" class="headerlink" title="过滤器分类"></a>过滤器分类</h3><ul>
+<li><p>行键过滤器</p>
+</li>
+<li><p>列族与列过滤器</p>
+</li>
+<li><p>值过滤器</p>
+</li>
+<li><p>其他过滤器</p>
+</li>
+</ul>
+<h4 id="行键过滤器"><a href="#行键过滤器" class="headerlink" title="行键过滤器"></a>行键过滤器</h4><h5 id="RowFilter"><a href="#RowFilter" class="headerlink" title="RowFilter"></a>RowFilter</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;RowFilter(=,&#x27;substring:0&#x27;)&quot;</span>&#125; <span class="comment">#行键包含字符0</span></span><br><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;RowFilter(&gt;,&#x27;binary:002&#x27;)&quot;</span>&#125; <span class="comment"># 行键顺序大于002</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="PrefixFilter"><a href="#PrefixFilter" class="headerlink" title="PrefixFilter"></a>PrefixFilter</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;PrefixFilter(&#x27;002&#x27;)&quot;</span>&#125; <span class="comment"># 行键前缀为002</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="KeyOnlyFilter"><a href="#KeyOnlyFilter" class="headerlink" title="KeyOnlyFilter"></a>KeyOnlyFilter</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;KeyOnlyFilter()&quot;</span>&#125; <span class="comment"># 显示所有Key，不显示Value</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="FirstKeyOnlyFilter"><a href="#FirstKeyOnlyFilter" class="headerlink" title="FirstKeyOnlyFilter"></a>FirstKeyOnlyFilter</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;FirstKeyOnlyFilter()&quot;</span>&#125; <span class="comment"># 无参.仅返回每行第一KV的滤波器。 此过滤器可用于更有效地执行row计数操作。</span></span><br><span class="line"><span class="comment"># 类似于</span></span><br><span class="line">count <span class="string">&#x27;Student&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="InclusiveStopFilter"><a href="#InclusiveStopFilter" class="headerlink" title="InclusiveStopFilter"></a>InclusiveStopFilter</h5><p>替代<code>ENDROW</code>返回终止条件行；显示[001,003)</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">STARTROW</span>=&gt;<span class="string">&#x27;001&#x27;</span>,<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;InclusiveStopFilter(&#x27;002&#x27;)&quot;</span>&#125; <span class="comment">#包含指定的终止行</span></span><br><span class="line"><span class="comment">#类似于</span></span><br><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">STARTROW</span>=&gt;<span class="string">&#x27;001&#x27;</span>,<span class="variable constant_">ENDROW</span>=&gt;<span class="string">&#x27;003&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="列族过滤器"><a href="#列族过滤器" class="headerlink" title="列族过滤器"></a>列族过滤器</h4><p>列族包含字符<code>Inf</code>的列；</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;FamilyFilter(=,&#x27;substring:Inf&#x27;)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>筛选<code>Info</code>列：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;FamilyFilter(=,&#x27;binary:Score&#x27;)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="列过滤器"><a href="#列过滤器" class="headerlink" title="列过滤器"></a>列过滤器</h4><h5 id="列过滤器-1"><a href="#列过滤器-1" class="headerlink" title="列过滤器"></a>列过滤器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scan &#x27;Student&#x27;,&#123;FILTER=&gt;&quot;QualifierFilter(=,&#x27;binary:name&#x27;)&quot;&#125; #等值</span><br><span class="line">scan &#x27;Student&#x27;,&#123;FILTER=&gt;&quot;QualifierFilter(=,&#x27;substring:nam&#x27;)&quot;&#125; #包含</span><br></pre></td></tr></table></figure>
+
+<h5 id="列前缀过滤器"><a href="#列前缀过滤器" class="headerlink" title="列前缀过滤器"></a>列前缀过滤器</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;ColumnPrefixFilter(&#x27;H&#x27;)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="多列前缀过滤器"><a href="#多列前缀过滤器" class="headerlink" title="多列前缀过滤器"></a>多列前缀过滤器</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;MultipleColumnPrefixFilter(&#x27;nam&#x27;,&#x27;age&#x27;)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="列区间过滤器"><a href="#列区间过滤器" class="headerlink" title="列区间过滤器"></a>列区间过滤器</h5><p>各列的字典序如下：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sorted([<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;age&#x27;</span>,<span class="string">&#x27;Hadoop&#x27;</span>,<span class="string">&#x27;Spark&#x27;</span>,<span class="string">&#x27;HBase&#x27;</span>])</span><br><span class="line">[<span class="string">&#x27;HBase&#x27;</span>, <span class="string">&#x27;Hadoop&#x27;</span>, <span class="string">&#x27;Spark&#x27;</span>, <span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;name&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;ColumnRangeFilter(&#x27;S&#x27;,true,&#x27;n&#x27;,false)&quot;</span>&#125;</span><br><span class="line"><span class="variable constant_">ROW</span>                        <span class="variable constant_">COLUMN</span>+<span class="variable constant_">CELL</span>                                                   </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Info:</span>age, timestamp=<span class="number">1668417929087</span>, value=<span class="number">30</span>             </span><br><span class="line"> <span class="number">001</span>                       column=<span class="symbol">Score:</span>Spark, timestamp=<span class="number">1668417929400</span>, value=<span class="number">70</span>         </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Info:</span>age, timestamp=<span class="number">1668417929434</span>, value=<span class="number">27</span>             </span><br><span class="line"> <span class="number">002</span>                       column=<span class="symbol">Score:</span>Spark, timestamp=<span class="number">1668417929481</span>, value=<span class="number">50</span>         </span><br><span class="line"> <span class="number">003</span>                       column=<span class="symbol">Info:</span>age, timestamp=<span class="number">1668419546101</span>, value=<span class="number">18</span>             </span><br><span class="line"> <span class="number">003</span>                       column=<span class="symbol">Score:</span>Spark, timestamp=<span class="number">1668419564352</span>, value=<span class="number">92</span>         </span><br><span class="line"><span class="number">3</span> row(s) <span class="keyword">in</span> <span class="number">0.0120</span> seconds</span><br></pre></td></tr></table></figure>
+
+<h5 id="ColumnCountGetFilter"><a href="#ColumnCountGetFilter" class="headerlink" title="ColumnCountGetFilter"></a>ColumnCountGetFilter</h5><p>限制每个逻辑行返回的单元格数</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;ColumnCountGetFilter(2)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="值过滤器"><a href="#值过滤器" class="headerlink" title="值过滤器"></a>值过滤器</h4><h5 id="ValueFilter"><a href="#ValueFilter" class="headerlink" title="ValueFilter"></a>ValueFilter</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;ValueFilter(=,&#x27;binary:98&#x27;)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;ValueFilter(=,&#x27;substring:9&#x27;)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="SingleColumnValueFilter"><a href="#SingleColumnValueFilter" class="headerlink" title="SingleColumnValueFilter"></a>SingleColumnValueFilter</h5><p>注意：没有<code>Hbase</code>这列的逻辑行也会被匹配到。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;SingleColumnValueFilter(&#x27;Score&#x27;,&#x27;Hbase&#x27;,=,&#x27;binary:85&#x27;)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;SingleColumnValueFilter(&#x27;Score&#x27;,&#x27;Hbase&#x27;,=,&#x27;binary:85&#x27;,True,True)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="时间戳过滤器"><a href="#时间戳过滤器" class="headerlink" title="时间戳过滤器"></a>时间戳过滤器</h4><h5 id="TimestampsFilter"><a href="#TimestampsFilter" class="headerlink" title="TimestampsFilter"></a>TimestampsFilter</h5><p>只查询时间戳为<code>1649129478746</code>和<code>1649129465737</code>的键值对；</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,&#123;<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;TimestampsFilter(1649129478746,1649129465737)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他过滤器"><a href="#其他过滤器" class="headerlink" title="其他过滤器"></a>其他过滤器</h4><h5 id="PageFilter"><a href="#PageFilter" class="headerlink" title="PageFilter"></a><strong>PageFilter</strong></h5><p>基于行的分页过滤器，设置返回行数。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scan <span class="string">&#x27;Student&#x27;</span>,<span class="variable constant_">FILTER</span>=&gt;<span class="string">&quot;PageFilter(2)&quot;</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">XiaoQu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://www.studybigdata.cn/HBase/HBase_Query/">http://www.studybigdata.cn/HBase/HBase_Query/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/HBase-Shell/">HBase Shell</a><a class="post-meta__tags" href="/tags/%E9%99%90%E5%AE%9A%E7%AC%A6/">限定符</a><a class="post-meta__tags" href="/tags/%E8%BF%87%E6%BB%A4%E5%99%A8/">过滤器</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Spark/PySpark/Spark_Python_Rdd/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">PySpark RDD</div></div></a></div><div class="next-post pull-right"><a href="/Spark/Spark_Env_Local/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Spark环境搭建（一）Local模式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/HBase/HBase_Exercise/" title="HBase_Shell 练习"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-23</div><div class="title">HBase_Shell 练习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/dog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/A-stranger"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HBase%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.</span> <span class="toc-text">HBase数据查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">插入数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#vim-data-sh"><span class="toc-number">1.1.2.0.1.</span> <span class="toc-text">vim data.sh</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.</span> <span class="toc-text">简单查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C"><span class="toc-number">1.2.1.</span> <span class="toc-text">行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97"><span class="toc-number">1.2.2.</span> <span class="toc-text">列</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B2%92%E5%BA%A6%EF%BC%9A%E5%88%97%E6%97%8F"><span class="toc-number">1.2.2.0.1.</span> <span class="toc-text">粒度：列族</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B2%92%E5%BA%A6%EF%BC%9A%E5%88%97"><span class="toc-number">1.2.2.0.2.</span> <span class="toc-text">粒度：列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E7%BB%84%E5%90%88"><span class="toc-number">1.2.3.</span> <span class="toc-text">行列组合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.</span> <span class="toc-text">过滤器查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KV"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">KV</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#key"><span class="toc-number">1.3.1.1.1.</span> <span class="toc-text">key</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#value"><span class="toc-number">1.3.1.1.2.</span> <span class="toc-text">value</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#family"><span class="toc-number">1.3.1.1.3.</span> <span class="toc-text">family</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#column"><span class="toc-number">1.3.1.1.4.</span> <span class="toc-text">column</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Qualifier"><span class="toc-number">1.3.1.1.5.</span> <span class="toc-text">Qualifier</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Single"><span class="toc-number">1.3.1.1.6.</span> <span class="toc-text">Single</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Inclusive"><span class="toc-number">1.3.1.1.7.</span> <span class="toc-text">Inclusive</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E8%AF%AD%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">过滤器语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.2.0.1.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.3.2.0.2.</span> <span class="toc-text">比较器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.2.0.3.</span> <span class="toc-text">比较运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.3.</span> <span class="toc-text">过滤器分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%8C%E9%94%AE%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">行键过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#RowFilter"><span class="toc-number">1.3.3.1.1.</span> <span class="toc-text">RowFilter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PrefixFilter"><span class="toc-number">1.3.3.1.2.</span> <span class="toc-text">PrefixFilter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#KeyOnlyFilter"><span class="toc-number">1.3.3.1.3.</span> <span class="toc-text">KeyOnlyFilter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FirstKeyOnlyFilter"><span class="toc-number">1.3.3.1.4.</span> <span class="toc-text">FirstKeyOnlyFilter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#InclusiveStopFilter"><span class="toc-number">1.3.3.1.5.</span> <span class="toc-text">InclusiveStopFilter</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E6%97%8F%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">列族过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">列过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%BF%87%E6%BB%A4%E5%99%A8-1"><span class="toc-number">1.3.3.3.1.</span> <span class="toc-text">列过滤器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E5%89%8D%E7%BC%80%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.3.2.</span> <span class="toc-text">列前缀过滤器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E5%88%97%E5%89%8D%E7%BC%80%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.3.3.</span> <span class="toc-text">多列前缀过滤器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E5%8C%BA%E9%97%B4%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.3.4.</span> <span class="toc-text">列区间过滤器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ColumnCountGetFilter"><span class="toc-number">1.3.3.3.5.</span> <span class="toc-text">ColumnCountGetFilter</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%BC%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">值过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ValueFilter"><span class="toc-number">1.3.3.4.1.</span> <span class="toc-text">ValueFilter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SingleColumnValueFilter"><span class="toc-number">1.3.3.4.2.</span> <span class="toc-text">SingleColumnValueFilter</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%88%B3%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">时间戳过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TimestampsFilter"><span class="toc-number">1.3.3.5.1.</span> <span class="toc-text">TimestampsFilter</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.3.3.6.</span> <span class="toc-text">其他过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PageFilter"><span class="toc-number">1.3.3.6.1.</span> <span class="toc-text">PageFilter</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Scala/Scala_Object_Oriented_Programming/" title="Scala面向对象编程">Scala面向对象编程</a><time datetime="2022-11-05T22:31:26.000Z" title="Created 2022-11-06 06:31:26">2022-11-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Kettle/Kettle_Clean_Code_Formulate/" title="kettle - 数据清理之公式清理">kettle - 数据清理之公式清理</a><time datetime="2022-11-02T22:34:26.000Z" title="Created 2022-11-03 06:34:26">2022-11-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Kettle/Kettle_Clean_Code_Java/" title="kettle - 数据清理之使用Java代码清理">kettle - 数据清理之使用Java代码清理</a><time datetime="2022-11-02T22:34:26.000Z" title="Created 2022-11-03 06:34:26">2022-11-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Kettle/Kettle_Clean_Code_JavaScript/" title="kettle - 数据清理之使用JavaScript脚本清理">kettle - 数据清理之使用JavaScript脚本清理</a><time datetime="2022-11-02T22:34:26.000Z" title="Created 2022-11-03 06:34:26">2022-11-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Kettle/Kettle_Clean_Code_RegularExpression/" title="kettle - 数据清理之使用正则表达式清理">kettle - 数据清理之使用正则表达式清理</a><time datetime="2022-11-02T22:34:26.000Z" title="Created 2022-11-03 06:34:26">2022-11-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
