@@ -1,0 +1,2140 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>学习大数据 | 学习大数据</title><meta name="author" content="XiaoQu"><meta name="copyright" content="XiaoQu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="示例 123456789101112131415161718&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;    &lt;title&gt;Hello World&lt;&#x2F;title&gt;&lt;&#x2F;head&gt;&lt;body&gt;    &lt;h1&gt;我的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习大数据">
+<meta property="og:url" content="http://www.studybigdata.cn/FrontEnd/HTML/index.html">
+<meta property="og:site_name" content="学习大数据">
+<meta property="og:description" content="示例 123456789101112131415161718&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;    &lt;title&gt;Hello World&lt;&#x2F;title&gt;&lt;&#x2F;head&gt;&lt;body&gt;    &lt;h1&gt;我的">
+<meta property="og:locale">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-02-18T11:37:50.289Z">
+<meta property="article:modified_time" content="2023-02-18T11:39:47.472Z">
+<meta property="article:author" content="XiaoQu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.studybigdata.cn/FrontEnd/HTML/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-qvYtDCUlcS"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?057fccfc2b1bef4c0d79224d80660be0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '学习大数据',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-18 19:39:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/jin.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">20</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-02-18T11:37:50.289Z" title="Created 2023-02-18 19:37:50">2023-02-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-02-18T11:39:47.472Z" title="Updated 2023-02-18 19:39:47">2023-02-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>示例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;</span>这是一个链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>元素</p>
+</li>
+<li><p>内容</p>
+</li>
+<li><p>属性</p>
+<p>属性总是以名称&#x2F;值对的形式出现，**比如：name&#x3D;”value”**。</p>
+</li>
+</ul>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注释： --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p align="center" style="color:red">BEGIN</p>
+
+<p>HTML 标题（Heading）是通过<h1> - <h6> 标签来定义的。</p>
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>一级标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>二级标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>三级标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<h1>一级标题</h1>
+<h2>二级标题</h2>
+<h3>三级标题</h3>
+
+<p align="center" style="color:red">END</p>
+
+
+
+<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落 <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<p>第一段</p>
+
+<p>第二段</p>
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+
+
+<h2 id="文本格式化"><a href="#文本格式化" class="headerlink" title="文本格式化"></a>文本格式化</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span>加粗文本<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span>&gt;</span>斜体文本<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">code</span>&gt;</span>用来定义计算机代码文本<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">这是 <span class="tag">&lt;<span class="name">sub</span>&gt;</span> 下标<span class="tag">&lt;/<span class="name">sub</span>&gt;</span> 和 <span class="tag">&lt;<span class="name">sup</span>&gt;</span> 上标<span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">del</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">del</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<p><b>加粗文本</b><br/><br><i>斜体文本</i><br/><br><code>用来定义计算机代码文本</code><br/><br>这是 <sub> 下标</sub> 和 <sup> 上标</sup><br><del>删除</del></p>
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+
+
+<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<p>第一段文字</p><br><p>第二段文字</p>
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+
+
+<h2 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<hr>
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+
+
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p align="center" style="color:red">BEGIN</p>
+
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<ul>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+</ul>
+
+
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<ol>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+</ol>
+
+
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+
+
+
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;</span>这是一个链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<p>​    <a target="_blank" rel="noopener" href="http://www.baidu.com">百度</a></p>
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+<h2 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./img/scrapy_architecture_01.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;scrapy_architecture&quot;</span> <span class="attr">width</span>=<span class="string">&quot;304&quot;</span> <span class="attr">height</span>=<span class="string">&quot;228&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<img border="0" src="img/HTML/scrapy_architecture_01.png" alt="scrapy_architecture" width="482" height="283">
+
+<p align="center" style="color:red">END</p>
+
+
+
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><h3 id="基础表格"><a href="#基础表格" class="headerlink" title="基础表格"></a>基础表格</h3><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第一列<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第二列<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>第一行第一列<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>第一行第二列<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>第二行第一列<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>第二行第二列<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<table border="1">
+    <tr>
+        <th>第一列</th>
+        <th>第二列</th>
+    </tr>
+    <tr>
+        <td>第一行第一列</td>
+        <td>第一行第二列</td>
+    </tr>
+    <tr>
+        <td>第二行第一列</td>
+        <td>第二行第二列</td>
+</table>
+
+
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+<h3 id="跨行跨列"><a href="#跨行跨列" class="headerlink" title="跨行跨列"></a>跨行跨列</h3><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span>单元格跨两列:<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>电话<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>15388888888<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>15366666666<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span>单元格跨两行:<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名:<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>电话:<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>15388888888<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>15366666666<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>效果</li>
+</ul>
+<p><b>单元格跨两列:</b></p>
+<table border="1">
+<tr>
+  <th>姓名</th>
+  <th colspan="2">电话</th>
+</tr>
+<tr>
+  <td>张三</td>
+  <td>15388888888</td>
+  <td>15366666666</td>
+</tr>
+</table>
+
+<p><b>单元格跨两行:</b></p>
+<table border="1">
+<tr>
+  <th>姓名:</th>
+  <td>张三</td>
+</tr>
+<tr>
+  <th rowspan="2">电话:</th>
+  <td>15388888888</td>
+</tr>
+<tr>
+  <td>15366666666</td>
+</tr>
+</table>
+<p align="center" style="color:red">END</p>
+
+
+
+<h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>确认<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<p><button>搜索</button></p>
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+<h2 id="文本框"><a href="#文本框" class="headerlink" title="文本框"></a>文本框</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;txtbox1&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入手机号&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<div>
+<input type="text" name="txtbox1" placeholder="请输入手机号"> 
+ </div>
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+
+
+<h2 id="提交按钮"><a href="#提交按钮" class="headerlink" title="提交按钮"></a>提交按钮</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<div>
+    <input type="submit" value="提交"> 
+</div>
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+<h2 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;male&quot;</span>&gt;</span> 男<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;female&quot;</span>  <span class="attr">checked</span>=<span class="string">&quot;True&quot;</span>&gt;</span> 女<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<div>
+    <input type="radio" name="sex" value="male"> 男<br>
+    <input type="radio" name="sex" value="female" checked="True"> 女<br>
+</div>
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+<h2 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;chinese&quot;</span> <span class="attr">value</span>=<span class="string">&quot;chinese&quot;</span>  <span class="attr">checked</span>=<span class="string">&quot;True&quot;</span>&gt;</span>语文<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;math&quot;</span> <span class="attr">value</span>=<span class="string">&quot;math&quot;</span>  <span class="attr">checked</span>=<span class="string">&quot;True&quot;</span>&gt;</span>数学<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;english&quot;</span> <span class="attr">value</span>=<span class="string">&quot;english&quot;</span>&gt;</span>英语<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<div>
+    <input type="checkbox" name="chinese" value="chinese"  checked="True">语文<br>
+    <input type="checkbox" name="math" value="math"  checked="True">数学<br>
+    <input type="checkbox" name="english" value="english">英语<br>
+</div>
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+<h2 id="下拉列表"><a href="#下拉列表" class="headerlink" title="下拉列表"></a>下拉列表</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;jinan&quot;</span>&gt;</span>济南<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;taian&quot;</span>&gt;</span>泰安<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;heze&quot;</span> <span class="attr">selected</span>&gt;</span>菏泽<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;zaozhuang&quot;</span>&gt;</span>枣庄<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<div>
+    <select name="city">
+        <option value="jinan">济南</option>
+        <option value="taian">泰安</option>
+        <option value="heze" selected>菏泽</option>
+        <option value="zaozhuang">枣庄</option>
+    </select>
+</div>
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+<h2 id="多行文本框"><a href="#多行文本框" class="headerlink" title="多行文本框"></a>多行文本框</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;5&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br><span class="line">我是一个多行文本框。</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<textarea rows="5" cols="100">
+我是一个多行文本框。
+</textarea>
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+
+
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;register&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/school/register&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    请填写表单注册账号<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    账号: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;account&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入账号&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密码: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入密码&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    性别：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;male&quot;</span>&gt;</span> 男<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;female&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;True&quot;</span>&gt;</span> 女<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    选修科目：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;chinese&quot;</span> <span class="attr">value</span>=<span class="string">&quot;chinese&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;True&quot;</span>&gt;</span>语文<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;math&quot;</span> <span class="attr">value</span>=<span class="string">&quot;math&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;True&quot;</span>&gt;</span>数学<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;english&quot;</span> <span class="attr">value</span>=<span class="string">&quot;english&quot;</span>&gt;</span>英语<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    所在城市：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;jinan&quot;</span>&gt;</span>济南<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;taian&quot;</span>&gt;</span>泰安<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;heze&quot;</span> <span class="attr">selected</span>&gt;</span>菏泽<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;zaozhuang&quot;</span>&gt;</span>枣庄<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    自我介绍：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;5&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br><span class="line">自我介绍，不少于200字。</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<form name="register" action="/school/register" method="post">
+    请填写表单注册账号<br>
+    账号: <input type="text" name="account" placeholder="请输入账号"><br>
+    密码: <input type="password" name="password" placeholder="请输入密码"><br>
+    性别：<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="male"> 男<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="female" checked="True"> 女<br>
+    选修科目：<br>
+    <input type="checkbox" name="chinese" value="chinese" checked="True">语文<br>
+    <input type="checkbox" name="math" value="math" checked="True">数学<br>
+    <input type="checkbox" name="english" value="english">英语<br>
+    所在城市：<br>
+    <select name="city">
+        <option value="jinan">济南</option>
+        <option value="taian">泰安</option>
+        <option value="heze" selected>菏泽</option>
+        <option value="zaozhuang">枣庄</option>
+    </select><br>
+    自我介绍：<br>
+    <textarea rows="5" cols="100">
+自我介绍，不少于200字。
+</textarea>
+    <br>
+    <input type="submit" value="提交">
+</form>
+
+
+<p align="center" style="color:red">END</p>
+
+
+
+<h2 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h2><p align="center" style="color:red">BEGIN</p>
+
+<ul>
+<li>源码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;copy;</span></span><br><span class="line"><span class="symbol">&amp;reg;</span></span><br><span class="line"><span class="symbol">&amp;trade;</span></span><br><span class="line"><span class="symbol">&amp;#9775;</span></span><br><span class="line"><span class="symbol">&amp;#9781;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果</li>
+</ul>
+<p>&amp;copy;<br>&amp;reg;<br>&amp;trade;<br>&amp;#9775;<br>&amp;#9781;</p>
+<ul>
+<li>更多</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/charsets/ref_html_symbols.asp">https://www.w3school.com.cn/charsets/ref_html_symbols.asp</a></p>
+</blockquote>
+<p align="center" style="color:red">END</p>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">XiaoQu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://www.studybigdata.cn/FrontEnd/HTML/">http://www.studybigdata.cn/FrontEnd/HTML/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/FrontEnd/CSS/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/Python/Python/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Python</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/jin.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">20</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/A-stranger"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">标题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"> -  标签来定义的。
+
+源码
+
+1
+2
+3
+&lt;h1&gt;一级标题&lt;&#x2F;h1&gt;
+&lt;h2&gt;二级标题&lt;&#x2F;h2&gt;
+&lt;h3&gt;三级标题&lt;&#x2F;h3&gt;
+
+
+
+效果
+
+一级标题
+二级标题
+三级标题
+
+END
+
+
+
+段落BEGIN
+
+
+源码
+
+1
+&lt;p&gt;这是一个段落 &lt;&#x2F;p&gt;
+
+
+
+
+
+效果
+
+第一段
+
+第二段
+
+END
+
+
+
+
+
+
+
+文本格式化BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+&lt;b&gt;加粗文本&lt;&#x2F;b&gt;&lt;br&#x2F;&gt;
+&lt;i&gt;斜体文本&lt;&#x2F;i&gt;&lt;br&#x2F;&gt;
+&lt;code&gt;用来定义计算机代码文本&lt;&#x2F;code&gt;&lt;br&#x2F;&gt;
+这是 &lt;sub&gt; 下标&lt;&#x2F;sub&gt; 和 &lt;sup&gt; 上标&lt;&#x2F;sup&gt;
+&lt;del&gt;删除&lt;&#x2F;del&gt;
+
+
+
+
+
+效果
+
+加粗文本
+
+斜体文本
+
+用来定义计算机代码文本
+
+这是  下标 和  上标
+删除
+END
+
+
+
+
+
+
+
+换行BEGIN
+
+
+源码
+
+1
+&lt;br&gt;
+
+
+
+效果
+
+第一段文字
+第二段文字
+
+END
+
+
+
+
+
+
+
+水平线BEGIN
+
+
+源码
+
+1
+&lt;hr&gt;
+
+
+
+效果
+
+
+END
+
+
+
+
+
+
+
+列表BEGIN
+
+无序列表
+源码
+
+1
+2
+3
+4
+5
+&lt;ul&gt;
+    &lt;li&gt;item1&lt;&#x2F;li&gt;
+    &lt;li&gt;item2&lt;&#x2F;li&gt;
+    &lt;li&gt;item3&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+效果
+
+
+    item1
+    item2
+    item3
+
+
+
+有序列表
+源码
+
+1
+2
+3
+4
+5
+&lt;ol&gt;
+    &lt;li&gt;item1&lt;&#x2F;li&gt;
+    &lt;li&gt;item2&lt;&#x2F;li&gt;
+    &lt;li&gt;item3&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+
+
+
+
+
+效果
+
+
+    item1
+    item2
+    item3
+
+
+
+
+
+END
+
+
+
+
+
+
+
+
+链接BEGIN
+
+
+源码
+
+1
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.baidu.com&quot;&gt;这是一个链接&lt;&#x2F;a&gt;
+
+
+
+
+
+效果
+
+​    百度
+END
+
+
+
+
+
+图像BEGIN
+
+
+源码
+
+1
+&lt;img border&#x3D;&quot;0&quot; src&#x3D;&quot;.&#x2F;img&#x2F;scrapy_architecture_01.png&quot; alt&#x3D;&quot;scrapy_architecture&quot; width&#x3D;&quot;304&quot; height&#x3D;&quot;228&quot;&gt;
+
+
+
+
+
+效果
+
+
+
+END
+
+
+
+表格基础表格BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+&lt;table border&#x3D;&quot;1&quot;&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;第一列&lt;&#x2F;th&gt;
+        &lt;th&gt;第二列&lt;&#x2F;th&gt;
+    &lt;&#x2F;tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;第一行第一列&lt;&#x2F;td&gt;
+        &lt;td&gt;第一行第二列&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;第二行第一列&lt;&#x2F;td&gt;
+        &lt;td&gt;第二行第二列&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+
+
+
+
+
+效果
+
+
+    
+        第一列
+        第二列
+    
+    
+        第一行第一列
+        第一行第二列
+    
+    
+        第二行第一列
+        第二行第二列
+
+
+
+
+
+END
+
+
+
+
+
+跨行跨列BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+&lt;b&gt;单元格跨两列:&lt;&#x2F;b&gt;
+
+&lt;table border&#x3D;&quot;1&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;姓名&lt;&#x2F;th&gt;
+        &lt;th colspan&#x3D;&quot;2&quot;&gt;电话&lt;&#x2F;th&gt;
+    &lt;&#x2F;tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;张三&lt;&#x2F;td&gt;
+        &lt;td&gt;15388888888&lt;&#x2F;td&gt;
+        &lt;td&gt;15366666666&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+&lt;b&gt;单元格跨两行:&lt;&#x2F;b&gt;
+
+&lt;table border&#x3D;&quot;1&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;姓名:&lt;&#x2F;th&gt;
+        &lt;td&gt;张三&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+    &lt;tr&gt;
+        &lt;th rowspan&#x3D;&quot;2&quot;&gt;电话:&lt;&#x2F;th&gt;
+        &lt;td&gt;15388888888&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;15366666666&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+
+
+
+
+
+效果
+
+单元格跨两列:
+
+
+  姓名
+  电话
+
+
+  张三
+  15388888888
+  15366666666
+
+
+
+单元格跨两行:
+
+
+  姓名:
+  张三
+
+
+  电话:
+  15388888888
+
+
+  15366666666
+
+
+END
+
+
+
+按钮BEGIN
+
+
+源码
+
+1
+&lt;button&gt;确认&lt;&#x2F;button&gt;
+
+
+
+效果
+
+搜索
+END
+
+
+
+
+
+文本框BEGIN
+
+
+源码
+
+1
+&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;txtbox1&quot; placeholder&#x3D;&quot;请输入手机号&quot;&gt; 
+
+
+
+效果
+
+
+ 
+ 
+
+
+END
+
+
+
+
+
+
+
+提交按钮BEGIN
+
+
+源码
+
+1
+&lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt; 
+
+
+
+效果
+
+
+     
+
+
+
+END
+
+
+
+
+
+单选按钮BEGIN
+
+
+源码
+
+1
+2
+3
+4
+&lt;div&gt;
+    &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;male&quot;&gt; 男&lt;br&gt;
+    &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;female&quot;  checked&#x3D;&quot;True&quot;&gt; 女&lt;br&gt;
+&lt;&#x2F;div&gt;
+
+
+
+效果
+
+
+     男
+
+     女
+
+
+
+
+END
+
+
+
+复选框BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+&lt;div&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;chinese&quot; value&#x3D;&quot;chinese&quot;  checked&#x3D;&quot;True&quot;&gt;语文&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;math&quot; value&#x3D;&quot;math&quot;  checked&#x3D;&quot;True&quot;&gt;数学&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;english&quot; value&#x3D;&quot;english&quot;&gt;英语&lt;br&gt;
+&lt;&#x2F;div&gt;
+
+
+
+效果
+
+
+    语文
+
+    数学
+
+    英语
+
+
+
+
+END
+
+
+
+
+
+下拉列表BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+&lt;div&gt;
+    &lt;select name&#x3D;&quot;city&quot;&gt;
+        &lt;option value&#x3D;&quot;jinan&quot;&gt;济南&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;taian&quot;&gt;泰安&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;heze&quot; selected&gt;菏泽&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;zaozhuang&quot;&gt;枣庄&lt;&#x2F;option&gt;
+    &lt;&#x2F;select&gt;
+&lt;&#x2F;div&gt;
+
+
+
+效果
+
+
+    
+        济南
+        泰安
+        菏泽
+        枣庄
+    
+
+
+
+END
+
+
+
+多行文本框BEGIN
+
+
+源码
+
+1
+2
+3
+&lt;textarea rows&#x3D;&quot;5&quot; cols&#x3D;&quot;100&quot;&gt;
+我是一个多行文本框。
+&lt;&#x2F;textarea&gt;
+
+
+
+效果
+
+
+我是一个多行文本框。
+
+
+
+END
+
+
+
+
+
+表单BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+&lt;form name&#x3D;&quot;register&quot; action&#x3D;&quot;&#x2F;school&#x2F;register&quot; method&#x3D;&quot;post&quot;&gt;
+    请填写表单注册账号&lt;br&gt;
+    账号: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;account&quot; placeholder&#x3D;&quot;请输入账号&quot;&gt;&lt;br&gt;
+    密码: &lt;input type&#x3D;&quot;password&quot; name&#x3D;&quot;password&quot; placeholder&#x3D;&quot;请输入密码&quot;&gt;&lt;br&gt;
+    性别：&lt;br&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;male&quot;&gt; 男&lt;br&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;female&quot; checked&#x3D;&quot;True&quot;&gt; 女&lt;br&gt;
+    选修科目：&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;chinese&quot; value&#x3D;&quot;chinese&quot; checked&#x3D;&quot;True&quot;&gt;语文&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;math&quot; value&#x3D;&quot;math&quot; checked&#x3D;&quot;True&quot;&gt;数学&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;english&quot; value&#x3D;&quot;english&quot;&gt;英语&lt;br&gt;
+    所在城市：&lt;br&gt;
+    &lt;select name&#x3D;&quot;city&quot;&gt;
+        &lt;option value&#x3D;&quot;jinan&quot;&gt;济南&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;taian&quot;&gt;泰安&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;heze&quot; selected&gt;菏泽&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;zaozhuang&quot;&gt;枣庄&lt;&#x2F;option&gt;
+    &lt;&#x2F;select&gt;&lt;br&gt;
+    自我介绍：&lt;br&gt;
+    &lt;textarea rows&#x3D;&quot;5&quot; cols&#x3D;&quot;100&quot;&gt;
+自我介绍，不少于200字。
+&lt;&#x2F;textarea&gt;
+    &lt;br&gt;
+    &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;
+&lt;&#x2F;form&gt;
+
+
+
+效果
+
+
+    请填写表单注册账号
+
+    账号: 
+
+    密码: 
+
+    性别：
+
+         男
+
+         女
+
+    选修科目：
+
+    语文
+
+    数学
+
+    英语
+
+    所在城市：
+
+    
+        济南
+        泰安
+        菏泽
+        枣庄
+    
+
+    自我介绍：
+
+    
+自我介绍，不少于200字。
+
+    
+
+    
+
+
+
+END
+
+
+
+特殊符号BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+&amp;copy;
+&amp;reg;
+&amp;trade;
+&amp;#9775;
+&amp;#9781;
+
+
+
+效果
+
+&amp;copy;
+&amp;reg;
+&amp;trade;
+&amp;#9775;
+&amp;#9781;
+
+更多
+
+
+https:&#x2F;&#x2F;www.w3school.com.cn&#x2F;charsets&#x2F;ref_html_symbols.asp
+
+END
+
+</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link"><span class="toc-number">2.0.0.0.0.1.</span> <span class="toc-text"> 标签来定义的。
+
+源码
+
+1
+2
+3
+&lt;h1&gt;一级标题&lt;&#x2F;h1&gt;
+&lt;h2&gt;二级标题&lt;&#x2F;h2&gt;
+&lt;h3&gt;三级标题&lt;&#x2F;h3&gt;
+
+
+
+效果
+
+一级标题
+二级标题
+三级标题
+
+END
+
+
+
+段落BEGIN
+
+
+源码
+
+1
+&lt;p&gt;这是一个段落 &lt;&#x2F;p&gt;
+
+
+
+
+
+效果
+
+第一段
+
+第二段
+
+END
+
+
+
+
+
+
+
+文本格式化BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+&lt;b&gt;加粗文本&lt;&#x2F;b&gt;&lt;br&#x2F;&gt;
+&lt;i&gt;斜体文本&lt;&#x2F;i&gt;&lt;br&#x2F;&gt;
+&lt;code&gt;用来定义计算机代码文本&lt;&#x2F;code&gt;&lt;br&#x2F;&gt;
+这是 &lt;sub&gt; 下标&lt;&#x2F;sub&gt; 和 &lt;sup&gt; 上标&lt;&#x2F;sup&gt;
+&lt;del&gt;删除&lt;&#x2F;del&gt;
+
+
+
+
+
+效果
+
+加粗文本
+
+斜体文本
+
+用来定义计算机代码文本
+
+这是  下标 和  上标
+删除
+END
+
+
+
+
+
+
+
+换行BEGIN
+
+
+源码
+
+1
+&lt;br&gt;
+
+
+
+效果
+
+第一段文字
+第二段文字
+
+END
+
+
+
+
+
+
+
+水平线BEGIN
+
+
+源码
+
+1
+&lt;hr&gt;
+
+
+
+效果
+
+
+END
+
+
+
+
+
+
+
+列表BEGIN
+
+无序列表
+源码
+
+1
+2
+3
+4
+5
+&lt;ul&gt;
+    &lt;li&gt;item1&lt;&#x2F;li&gt;
+    &lt;li&gt;item2&lt;&#x2F;li&gt;
+    &lt;li&gt;item3&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+效果
+
+
+    item1
+    item2
+    item3
+
+
+
+有序列表
+源码
+
+1
+2
+3
+4
+5
+&lt;ol&gt;
+    &lt;li&gt;item1&lt;&#x2F;li&gt;
+    &lt;li&gt;item2&lt;&#x2F;li&gt;
+    &lt;li&gt;item3&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+
+
+
+
+
+效果
+
+
+    item1
+    item2
+    item3
+
+
+
+
+
+END
+
+
+
+
+
+
+
+
+链接BEGIN
+
+
+源码
+
+1
+&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.baidu.com&quot;&gt;这是一个链接&lt;&#x2F;a&gt;
+
+
+
+
+
+效果
+
+​    百度
+END
+
+
+
+
+
+图像BEGIN
+
+
+源码
+
+1
+&lt;img border&#x3D;&quot;0&quot; src&#x3D;&quot;.&#x2F;img&#x2F;scrapy_architecture_01.png&quot; alt&#x3D;&quot;scrapy_architecture&quot; width&#x3D;&quot;304&quot; height&#x3D;&quot;228&quot;&gt;
+
+
+
+
+
+效果
+
+
+
+END
+
+
+
+表格基础表格BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+&lt;table border&#x3D;&quot;1&quot;&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;第一列&lt;&#x2F;th&gt;
+        &lt;th&gt;第二列&lt;&#x2F;th&gt;
+    &lt;&#x2F;tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;第一行第一列&lt;&#x2F;td&gt;
+        &lt;td&gt;第一行第二列&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;第二行第一列&lt;&#x2F;td&gt;
+        &lt;td&gt;第二行第二列&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+
+
+
+
+
+效果
+
+
+    
+        第一列
+        第二列
+    
+    
+        第一行第一列
+        第一行第二列
+    
+    
+        第二行第一列
+        第二行第二列
+
+
+
+
+
+END
+
+
+
+
+
+跨行跨列BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+&lt;b&gt;单元格跨两列:&lt;&#x2F;b&gt;
+
+&lt;table border&#x3D;&quot;1&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;姓名&lt;&#x2F;th&gt;
+        &lt;th colspan&#x3D;&quot;2&quot;&gt;电话&lt;&#x2F;th&gt;
+    &lt;&#x2F;tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;张三&lt;&#x2F;td&gt;
+        &lt;td&gt;15388888888&lt;&#x2F;td&gt;
+        &lt;td&gt;15366666666&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+&lt;b&gt;单元格跨两行:&lt;&#x2F;b&gt;
+
+&lt;table border&#x3D;&quot;1&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;姓名:&lt;&#x2F;th&gt;
+        &lt;td&gt;张三&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+    &lt;tr&gt;
+        &lt;th rowspan&#x3D;&quot;2&quot;&gt;电话:&lt;&#x2F;th&gt;
+        &lt;td&gt;15388888888&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;15366666666&lt;&#x2F;td&gt;
+    &lt;&#x2F;tr&gt;
+&lt;&#x2F;table&gt;
+
+
+
+
+
+效果
+
+单元格跨两列:
+
+
+  姓名
+  电话
+
+
+  张三
+  15388888888
+  15366666666
+
+
+
+单元格跨两行:
+
+
+  姓名:
+  张三
+
+
+  电话:
+  15388888888
+
+
+  15366666666
+
+
+END
+
+
+
+按钮BEGIN
+
+
+源码
+
+1
+&lt;button&gt;确认&lt;&#x2F;button&gt;
+
+
+
+效果
+
+搜索
+END
+
+
+
+
+
+文本框BEGIN
+
+
+源码
+
+1
+&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;txtbox1&quot; placeholder&#x3D;&quot;请输入手机号&quot;&gt; 
+
+
+
+效果
+
+
+ 
+ 
+
+
+END
+
+
+
+
+
+
+
+提交按钮BEGIN
+
+
+源码
+
+1
+&lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt; 
+
+
+
+效果
+
+
+     
+
+
+
+END
+
+
+
+
+
+单选按钮BEGIN
+
+
+源码
+
+1
+2
+3
+4
+&lt;div&gt;
+    &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;male&quot;&gt; 男&lt;br&gt;
+    &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;female&quot;  checked&#x3D;&quot;True&quot;&gt; 女&lt;br&gt;
+&lt;&#x2F;div&gt;
+
+
+
+效果
+
+
+     男
+
+     女
+
+
+
+
+END
+
+
+
+复选框BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+&lt;div&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;chinese&quot; value&#x3D;&quot;chinese&quot;  checked&#x3D;&quot;True&quot;&gt;语文&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;math&quot; value&#x3D;&quot;math&quot;  checked&#x3D;&quot;True&quot;&gt;数学&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;english&quot; value&#x3D;&quot;english&quot;&gt;英语&lt;br&gt;
+&lt;&#x2F;div&gt;
+
+
+
+效果
+
+
+    语文
+
+    数学
+
+    英语
+
+
+
+
+END
+
+
+
+
+
+下拉列表BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+&lt;div&gt;
+    &lt;select name&#x3D;&quot;city&quot;&gt;
+        &lt;option value&#x3D;&quot;jinan&quot;&gt;济南&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;taian&quot;&gt;泰安&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;heze&quot; selected&gt;菏泽&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;zaozhuang&quot;&gt;枣庄&lt;&#x2F;option&gt;
+    &lt;&#x2F;select&gt;
+&lt;&#x2F;div&gt;
+
+
+
+效果
+
+
+    
+        济南
+        泰安
+        菏泽
+        枣庄
+    
+
+
+
+END
+
+
+
+多行文本框BEGIN
+
+
+源码
+
+1
+2
+3
+&lt;textarea rows&#x3D;&quot;5&quot; cols&#x3D;&quot;100&quot;&gt;
+我是一个多行文本框。
+&lt;&#x2F;textarea&gt;
+
+
+
+效果
+
+
+我是一个多行文本框。
+
+
+
+END
+
+
+
+
+
+表单BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+&lt;form name&#x3D;&quot;register&quot; action&#x3D;&quot;&#x2F;school&#x2F;register&quot; method&#x3D;&quot;post&quot;&gt;
+    请填写表单注册账号&lt;br&gt;
+    账号: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;account&quot; placeholder&#x3D;&quot;请输入账号&quot;&gt;&lt;br&gt;
+    密码: &lt;input type&#x3D;&quot;password&quot; name&#x3D;&quot;password&quot; placeholder&#x3D;&quot;请输入密码&quot;&gt;&lt;br&gt;
+    性别：&lt;br&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;male&quot;&gt; 男&lt;br&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;female&quot; checked&#x3D;&quot;True&quot;&gt; 女&lt;br&gt;
+    选修科目：&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;chinese&quot; value&#x3D;&quot;chinese&quot; checked&#x3D;&quot;True&quot;&gt;语文&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;math&quot; value&#x3D;&quot;math&quot; checked&#x3D;&quot;True&quot;&gt;数学&lt;br&gt;
+    &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;english&quot; value&#x3D;&quot;english&quot;&gt;英语&lt;br&gt;
+    所在城市：&lt;br&gt;
+    &lt;select name&#x3D;&quot;city&quot;&gt;
+        &lt;option value&#x3D;&quot;jinan&quot;&gt;济南&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;taian&quot;&gt;泰安&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;heze&quot; selected&gt;菏泽&lt;&#x2F;option&gt;
+        &lt;option value&#x3D;&quot;zaozhuang&quot;&gt;枣庄&lt;&#x2F;option&gt;
+    &lt;&#x2F;select&gt;&lt;br&gt;
+    自我介绍：&lt;br&gt;
+    &lt;textarea rows&#x3D;&quot;5&quot; cols&#x3D;&quot;100&quot;&gt;
+自我介绍，不少于200字。
+&lt;&#x2F;textarea&gt;
+    &lt;br&gt;
+    &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;
+&lt;&#x2F;form&gt;
+
+
+
+效果
+
+
+    请填写表单注册账号
+
+    账号: 
+
+    密码: 
+
+    性别：
+
+         男
+
+         女
+
+    选修科目：
+
+    语文
+
+    数学
+
+    英语
+
+    所在城市：
+
+    
+        济南
+        泰安
+        菏泽
+        枣庄
+    
+
+    自我介绍：
+
+    
+自我介绍，不少于200字。
+
+    
+
+    
+
+
+
+END
+
+
+
+特殊符号BEGIN
+
+
+源码
+
+1
+2
+3
+4
+5
+&amp;copy;
+&amp;reg;
+&amp;trade;
+&amp;#9775;
+&amp;#9781;
+
+
+
+效果
+
+&amp;copy;
+&amp;reg;
+&amp;trade;
+&amp;#9775;
+&amp;#9781;
+
+更多
+
+
+https:&#x2F;&#x2F;www.w3school.com.cn&#x2F;charsets&#x2F;ref_html_symbols.asp
+
+END
+
+</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.1.1.</span> <span class="toc-text">三级标题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%B5%E8%90%BD"><span class="toc-number">3.2.</span> <span class="toc-text">段落</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">3.3.</span> <span class="toc-text">文本格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E8%A1%8C"><span class="toc-number">3.4.</span> <span class="toc-text">换行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E7%BA%BF"><span class="toc-number">3.5.</span> <span class="toc-text">水平线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">3.6.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">3.6.1.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">3.6.2.</span> <span class="toc-text">有序列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-number">3.7.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F"><span class="toc-number">3.8.</span> <span class="toc-text">图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">3.9.</span> <span class="toc-text">表格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%A1%A8%E6%A0%BC"><span class="toc-number">3.9.1.</span> <span class="toc-text">基础表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E8%A1%8C%E8%B7%A8%E5%88%97"><span class="toc-number">3.9.2.</span> <span class="toc-text">跨行跨列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E9%92%AE"><span class="toc-number">3.10.</span> <span class="toc-text">按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A1%86"><span class="toc-number">3.11.</span> <span class="toc-text">文本框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%8C%89%E9%92%AE"><span class="toc-number">3.12.</span> <span class="toc-text">提交按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%80%89%E6%8C%89%E9%92%AE"><span class="toc-number">3.13.</span> <span class="toc-text">单选按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E9%80%89%E6%A1%86"><span class="toc-number">3.14.</span> <span class="toc-text">复选框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="toc-number">3.15.</span> <span class="toc-text">下拉列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%A1%86"><span class="toc-number">3.16.</span> <span class="toc-text">多行文本框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95"><span class="toc-number">3.17.</span> <span class="toc-text">表单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7"><span class="toc-number">3.18.</span> <span class="toc-text">特殊符号</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/MIIT/MIIT/" title="工信部职业技术认证">工信部职业技术认证</a><time datetime="2023-03-21T14:14:00.000Z" title="Created 2023-03-21 22:14:00">2023-03-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/FrontEnd/JavaScript/" title="No title">No title</a><time datetime="2023-02-18T11:38:13.640Z" title="Created 2023-02-18 19:38:13">2023-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/FrontEnd/CSS/" title="No title">No title</a><time datetime="2023-02-18T11:38:05.627Z" title="Created 2023-02-18 19:38:05">2023-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/FrontEnd/HTML/" title="No title">No title</a><time datetime="2023-02-18T11:37:50.289Z" title="Created 2023-02-18 19:37:50">2023-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Python/Python/" title="Python">Python</a><time datetime="2023-02-11T14:14:00.000Z" title="Created 2023-02-11 22:14:00">2023-02-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
