@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Python同步练习 | 学习大数据</title><meta name="keywords" content="Python"><meta name="author" content="XiaoQu"><meta name="copyright" content="XiaoQu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Python概述 查看Python版本 安装numpy 卸载numpy 查看已安装扩展库列表  编程规范修正以下代码，让其正确执行。  a &#x3D; 99 if a&lt;60: print(&quot;成绩不及格&quot;) elif a&lt;80: print(&quot;成绩中等&quot;) elif a&lt;100: print(&quot;成绩优秀&quot;) 12342. &#96;&#96;&#96;p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python同步练习">
+<meta property="og:url" content="http://www.studybigdata.cn/Python/Python_Exercise/index.html">
+<meta property="og:site_name" content="学习大数据">
+<meta property="og:description" content="Python概述 查看Python版本 安装numpy 卸载numpy 查看已安装扩展库列表  编程规范修正以下代码，让其正确执行。  a &#x3D; 99 if a&lt;60: print(&quot;成绩不及格&quot;) elif a&lt;80: print(&quot;成绩中等&quot;) elif a&lt;100: print(&quot;成绩优秀&quot;) 12342. &#96;&#96;&#96;p">
+<meta property="og:locale">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-02-11T14:14:00.000Z">
+<meta property="article:modified_time" content="2023-05-04T07:41:14.929Z">
+<meta property="article:author" content="XiaoQu">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.studybigdata.cn/Python/Python_Exercise/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-qvYtDCUlcS"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?057fccfc2b1bef4c0d79224d80660be0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python同步练习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-04 15:41:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/jin.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">75</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">36</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">23</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">学习大数据</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python同步练习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-02-11T14:14:00.000Z" title="Created 2023-02-11 22:14:00">2023-02-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-05-04T07:41:14.929Z" title="Updated 2023-05-04 15:41:14">2023-05-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python同步练习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="Python概述"><a href="#Python概述" class="headerlink" title="Python概述"></a>Python概述</h2><ol>
+<li>查看Python版本</li>
+<li>安装numpy</li>
+<li>卸载numpy</li>
+<li>查看已安装扩展库列表</li>
+</ol>
+<h3 id="编程规范"><a href="#编程规范" class="headerlink" title="编程规范"></a>编程规范</h3><p>修正以下代码，让其正确执行。</p>
+<ol>
+<li><pre><code class="python">a = 99
+if a&lt;60:
+print(&quot;成绩不及格&quot;)
+elif a&lt;80:
+print(&quot;成绩中等&quot;)
+elif a&lt;100:
+print(&quot;成绩优秀&quot;)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```python</span><br><span class="line">   for i in [1,2,3]:</span><br><span class="line">   print(i)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>&#96;&#96;&#96;python<br>def sum(a,b):<br>return a+b</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. ```python</span><br><span class="line">   class Dog:</span><br><span class="line">   name = &quot;dog&quot; # 属性</span><br><span class="line">   def say(self): # 方法</span><br><span class="line">   print(&quot;wang wang ~&quot;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ol>
+<li>创建一个变量 d, 值为 -10</li>
+<li>创建一个变量 f,  值为 10.5</li>
+<li>创建一个变量 b, 值为 True</li>
+<li>创建一个字符串 s, 值为 “  study Big Data  “</li>
+<li>查看以上四个变量的数据类型；</li>
+</ol>
+<h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><ol>
+<li>计算d的绝对值，将绝对值赋值给一个新的变量a</li>
+<li>计算a的3次方；</li>
+<li>对f进行四舍五入</li>
+<li>使用a除以3，计算商和余数</li>
+<li>计算d+f</li>
+<li>将d由整数类型转为字符串类型，命名为d1</li>
+<li>计算d1和f的和</li>
+<li>查看max函数的帮助文档</li>
+<li>给定列表 l &#x3D; [44,3,35,675,34]</li>
+<li>计算列表l中的最大值、最小值、所有元素的和</li>
+</ol>
+<h3 id="字符串相关函数"><a href="#字符串相关函数" class="headerlink" title="字符串相关函数"></a>字符串相关函数</h3><ol>
+<li>刚才创建的字符串 s, 值为 “  study Big Data  “</li>
+<li>去除头部空格；</li>
+<li>去除尾部空格；</li>
+<li>查看字符串s的值</li>
+<li>将字符串首尾空格去除后，赋值给一个新的变量s1</li>
+<li>将s1中的字符全部转为大写</li>
+<li>将s1中每个单词的首字母大写，赋值给一个新的变量s2</li>
+<li>让s2在100个宽度的字符中水平居中，空白字符填充等号。</li>
+<li>查看s2中，字符a的索引值；</li>
+<li>将”Big”替换成”Small”</li>
+<li>将s2，根据空格拆分成列表<code>[&quot;Study&quot;,&quot;Big&quot;,&quot;Data&quot;]</code>，赋值给一个新的变量l。</li>
+<li>判断元素”Data”是否在列表l中。</li>
+<li>使用”*”将列表l串接成字符串。<code>Study*Big*Data</code></li>
+</ol>
+<blockquote>
+<p>split、index、strip</p>
+</blockquote>
+<h2 id="分支循环"><a href="#分支循环" class="headerlink" title="分支循环"></a>分支循环</h2><ol>
+<li>接收用户输入的账号，赋值给 username变量<code>input()</code></li>
+<li>接收用户输入的密码，赋值给 password变量</li>
+<li>接收用户输入的验证码（只为整数），赋值给变量code</li>
+<li>假设数据库中保存的用户名为”root”，密码为”123456”，验证码为1010</li>
+<li>判断用户名、密码、验证码是否正确。</li>
+<li>正确时，打印欢迎界面；错误超过3次，程序退出。</li>
+</ol>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://c.runoob.com/compile/9/">https://c.runoob.com/compile/9/</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">XiaoQu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://www.studybigdata.cn/Python/Python_Exercise/">http://www.studybigdata.cn/Python/Python_Exercise/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Python/Anaconda/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">anaconda</div></div></a></div><div class="next-post pull-right"><a href="/Spark/Spark_SQL/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Spark SQL</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/Python/Python/" title="Python"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-11</div><div class="title">Python</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/jin.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XiaoQu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">75</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">36</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">23</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/A-stranger"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">Python概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83"><span class="toc-number">1.1.</span> <span class="toc-text">编程规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">内置函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">字符串相关函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%BE%AA%E7%8E%AF"><span class="toc-number">4.</span> <span class="toc-text">分支循环</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Spark/PySpark/Spark_Python_Streaming_Neccat/" title="No title">No title</a><time datetime="2023-04-20T02:23:20.871Z" title="Created 2023-04-20 10:23:20">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Spark/PySpark/Spark_Python_Streaming/" title="No title">No title</a><time datetime="2023-04-20T02:22:58.313Z" title="Created 2023-04-20 10:22:58">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Spark/PySpark/Spark_Python_Jupyter_Notebook/" title="No title">No title</a><time datetime="2023-04-12T23:58:02.457Z" title="Created 2023-04-13 07:58:02">2023-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/MIIT/MIIT/" title="工信部职业技术认证资格考试">工信部职业技术认证资格考试</a><time datetime="2023-03-21T14:14:00.000Z" title="Created 2023-03-21 22:14:00">2023-03-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/JavaEE/2-6%20JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="【实训2-6】JavaScript 数据类型">【实训2-6】JavaScript 数据类型</a><time datetime="2023-03-21T10:14:00.000Z" title="Created 2023-03-21 18:14:00">2023-03-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By XiaoQu</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
