@@ -1,0 +1,7 @@
+ID,REF_CODE,SRC_SYS,SRC_CODE
+0,F,SystemA,2
+1,M,SystemA,1
+2,U,SystemA,0
+3,F,SystemB,female
+4,M,SystemB,male
+5,U,SystemB,unknow
